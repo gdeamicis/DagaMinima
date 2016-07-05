@@ -20,10 +20,39 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/controllers/index.js"></script>
+    <script src="js/controllers/playlists.js"></script>
+    <script src="js/controllers/playlist.js"></script>
   </head>
 
-  <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
+  <body ng-app="starter" ng-controller="indexController">
+
+    <ion-nav-view>
+      <ion-side-menus enable-menu-with-back-views="false">
+
+        <!-- Left menu -->
+        <ion-side-menu side="left">
+          <div ng-include="'views/sidebar.html'"></div>
+        </ion-side-menu>
+
+        <!-- Main content -->
+        <ion-side-menu-content>
+          <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+              </button>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+          <ion-nav-view name="menuContent"></ion-nav-view>
+        </ion-side-menu-content>
+
+      </ion-side-menus>
+    </ion-nav-view>
+
   </body>
 </html>
