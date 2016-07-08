@@ -11,6 +11,7 @@ var modules = [
   'ionic',
   'starter.controllers',
   'ngCordova',
+  'ngCordovaOauth',
 ];
 
 var starter = angular.module('starter', modules);
