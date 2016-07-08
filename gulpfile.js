@@ -8,11 +8,11 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 
 var paths = {
-  sass: ['./scss/**/*.scss'],
+  sass: ['./scss/*.scss', './scss/partials/*.scss'],
   js: ['src/js/app.js', 'src/js/routes.js', 'src/js/init.js', 'src/js/controllers/*.js']
 };
 
-gulp.task('default', ['sass', 'concat']);
+gulp.task('default', ['sass', 'concat', 'concat-angular']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/**/*.scss')
@@ -32,6 +32,18 @@ gulp.task('sass', function(done) {
 gulp.task('concat', function() {
   return gulp.src(['src/js/app.js', 'src/js/routes.js', 'src/js/init.js', 'src/js/controllers/*.js'])
     .pipe(concat('starter.js'))
+    .pipe(gulp.dest('./www/js/'));
+});
+
+gulp.task('concat-angular', function() {
+  return gulp.src(['bower_components/angular/angular.js',
+    'bower_components/angular-animate/angular-animate.js',
+    'bower_components/angular-sanatize/angular-sanatize.js',
+    'bower_components/angular-ui-router/release/angular-ui-router.js',
+    'bower_components/ionic/js/ionic-angular.js',
+    'bower_components/ngCordova/dist/ng-cordova.js',
+    'bower_components/ngCordova/dist/ng-cordova-mocks.js'])
+    .pipe(concat('angular.js'))
     .pipe(gulp.dest('./www/js/'));
 });
 

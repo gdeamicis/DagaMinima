@@ -2,7 +2,7 @@
   "name": "starter",
   "app_id": "1",
   "gulpStartupTasks":
-  ["sass", "watch", "concat"],
+  ["sass", "watch", "concat","concat-angular"],
   "watchPatterns": [
     "www/**/*",
     "!www/lib/**/*"
