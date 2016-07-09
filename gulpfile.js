@@ -42,8 +42,7 @@ gulp.task('concat-angular', function() {
     'bower_components/angular-ui-router/release/angular-ui-router.js',
     'bower_components/ionic/js/ionic-angular.js',
     'bower_components/ngCordova/dist/ng-cordova.js',
-    'bower_components/ngCordova/dist/ng-cordova-mocks.js',
-    'bower_components/ng-cordova-oauth/dist/ng-cordova-oauth.js'])
+    'bower_components/ngCordova/dist/ng-cordova-mocks.js'])
     .pipe(concat('angular.js'))
     .pipe(gulp.dest('./www/js/'));
 });
