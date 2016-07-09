@@ -10,9 +10,11 @@
 var modules = [
   'ionic',
   'starter.controllers',
+  'starter.services',
   'ngCordova',
 ];
 
 var starter = angular.module('starter', modules);
 
+angular.module('starter.services', []);
 angular.module('starter.controllers', []);

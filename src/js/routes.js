@@ -1,43 +1,28 @@
 'use strict';
 
-angular.module('starter').config(function($stateProvider, $urlRouterProvider) {
+angular.module('starter').config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.platform.android.navBar.alignTitle('center');
+
   $stateProvider
 
-    .state('search', {
-    url: '/search',
+    .state('facebook', {
+    url: '/facebook',
     views: {
       'menuContent': {
-        templateUrl: 'views/search.html'
+        templateUrl: 'views/facebook.html',
       }
     }
   })
 
-  .state('browse', {
-    url: '/browse',
+  .state('home', {
+    url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'views/browse.html'
-      }
-    }
-  })
-
-  .state('playlists', {
-    url: '/playlists',
-    views: {
-      'menuContent': {
-        templateUrl: 'views/playlists.html',
-      }
-    }
-  })
-
-  .state('single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'views/playlist.html',
+        templateUrl: 'views/home.html'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/playlists');
+
+  $urlRouterProvider.otherwise('/home');
 });
