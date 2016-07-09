@@ -21,11 +21,11 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider) {
     }
   })
 
-  .state('playlists', {
-    url: '/playlists',
+  .state('facebook', {
+    url: '/facebook',
     views: {
       'menuContent': {
-        templateUrl: 'views/playlists.html',
+        templateUrl: 'views/facebook.html',
       }
     }
   })
@@ -39,5 +39,5 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider) {
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/playlists');
+  $urlRouterProvider.otherwise('/facebook');
 });
