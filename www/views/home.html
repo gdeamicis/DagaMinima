@@ -1,0 +1,10 @@
+<ion-view view-title="Home" ng-controller="homeController">
+  <ion-content>
+    <ion-list>
+      <ion-item><img ng-src="{{user.picture}}"></img></ion-item>
+      <ion-item>{{user.email}}</ion-item>
+      <ion-item>{{user.name}}</ion-item>
+    </ion-list>
+    <a class="button button-assertive button-block" ng-click="showLogOutMenu()">Log Out</a>
+  </ion-content>
+</ion-view>

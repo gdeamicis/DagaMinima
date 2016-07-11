@@ -14,7 +14,7 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-$stable:                          teal !default;
+$dark:                          #202020 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
@@ -22,4 +22,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 // import partials
-@import "./scss/partials/_topbar.scss";
+@import "./scss/partials/_background.scss";
+@import "./scss/partials/_modals.scss";
+@import "./scss/partials/_buttons.scss";
+@import "./scss/partials/_scrollContent.scss";
+@import "./scss/partials/_welcome-title.scss";

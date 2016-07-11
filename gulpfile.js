@@ -9,7 +9,7 @@ var sh = require('shelljs');
 
 var paths = {
   sass: ['./scss/*.scss', './scss/partials/*.scss'],
-  js: ['src/js/app.js', 'src/js/routes.js', 'src/js/init.js', 'src/js/controllers/*.js']
+  js: ['src/js/app.js', 'src/js/routes.js', 'src/js/init.js', 'src/js/controllers/*.js', 'src/js/services/*.js']
 };
 
 gulp.task('default', ['sass', 'concat', 'concat-angular']);
@@ -30,7 +30,7 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('concat', function() {
-  return gulp.src(['src/js/app.js', 'src/js/routes.js', 'src/js/init.js', 'src/js/controllers/*.js'])
+  return gulp.src(['src/js/app.js', 'src/js/routes.js', 'src/js/init.js', 'src/js/controllers/*.js', 'src/js/services/*.js'])
     .pipe(concat('starter.js'))
     .pipe(gulp.dest('./www/js/'));
 });
