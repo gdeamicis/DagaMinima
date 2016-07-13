@@ -9,4 +9,4 @@
 - ionic run android
 
 
-> Everytime you make changes in the proyect you should run ``gulp``, then ``ionic build android`` and then ``ionic run android``. ( this proccess should be simplified in the future )
+> Everytime you make changes in the proyect you should run ``gulp android ``
