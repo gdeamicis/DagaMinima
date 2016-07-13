@@ -59,6 +59,12 @@ gulp.task('install', ['git-check'], function() {
     });
 });
 
+gulp.task('android', function() {
+  sh.exec('gulp');
+  sh.exec('ionic build android');
+  sh.exec('ionic run android');
+});
+
 gulp.task('git-check', function(done) {
   if (!sh.which('git')) {
     console.log(
