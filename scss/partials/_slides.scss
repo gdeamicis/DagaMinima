@@ -1,0 +1,29 @@
+.swiper-pagination {
+  display: none
+}
+
+.slides {
+  background-color: #f6f6f6;
+  .button {
+    z-index: 99;
+    position: absolute;
+    bottom: 0px;
+    background-color: #00cc00;
+    color: white;
+    border-radius: 0px;
+    margin-bottom: 0px;
+  }
+  .card {
+    position: absolute;
+    bottom: 6%;
+    width: 90%;
+    margin-left: 20px;
+  }
+}
+
+.swiper-slide img{
+  width: 100%;
+  height: 70%;
+  max-width: none;
+  max-height: none;
+}

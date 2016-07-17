@@ -1,4 +1,21 @@
 <ion-view view-title="Home" ng-controller="homeController">
-  <ion-content>
+  <ion-content class="slides" scroll="false">
+    <ion-slides options="options" slider="data.slider">
+      <ion-slide-page>
+        <img ng-src="./img/img1.jpg"></img>
+      </ion-slide-page>
+      <ion-slide-page>
+        <img ng-src="./img/img2.jpeg"></img>
+      </ion-slide-page>
+      <ion-slide-page>
+        <img ng-src="./img/img3.jpeg"></img>
+      </ion-slide-page>
+    </ion-slides>
+    <div class="card">
+      <div class="item item-text-wrap">
+        {{description}}
+      </div>
+    </div>
+    <button class="button button-block">I LOVE IT!</button>
   </ion-content>
 </ion-view>
