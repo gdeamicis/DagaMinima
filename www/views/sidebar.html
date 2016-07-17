@@ -1,9 +1,7 @@
-<ion-header-bar class="bar-dark">
-  <h1 class="title">Profile</h1>
-</ion-header-bar>
 <ion-content>
-  <ion-list>
-    <ion-item menu-close>
-      Example Element
-    </ion-item>
+    <ion-list class="profile-list">
+      <ion-item><img ng-src="{{user.picture}}"></img></ion-item>
+      <ion-item>{{user.name}}</ion-item>
+      <ion-item><a class="button button-assertive button-block" ng-click="showLogOutMenu()">Log Out</a></ion-item>
+    </ion-list>
 </ion-content>
