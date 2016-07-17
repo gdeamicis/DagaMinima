@@ -3,14 +3,15 @@
 angular.module('starter.controllers').controller('indexController', function($scope, $rootScope, $timeout, $state, storageService) {
 
   $scope.$on('$ionicView.enter', function() {
-    $scope.isLoged = JSON.stringify(storageService.getUser()) == '{}' ? null : storageService.getUser();
-    if (!$scope.isLoged) {
-      $state.go('facebook');
+    $scope.user = storageService.getLocalUser();
+    if (!$scope.user.userID) {
+      $scope.user = null;
     }
   });
 
-  $rootScope.$on('Local/FacebookLogin', function(event, isLoged) {
-    $scope.isLoged = isLoged;
+  $rootScope.$on('Local/FacebookLogin', function(event, user) {
+    $scope.user = user;
+    if (user) $state.go('home');
   });
 
 })

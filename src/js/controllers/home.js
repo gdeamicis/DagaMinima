@@ -2,10 +2,6 @@
 
 angular.module('starter.controllers').controller('homeController', function($scope, $rootScope, storageService, $ionicPopup, $state) {
 
-  $scope.$on('$ionicView.enter', function() {
-    $scope.user = storageService.getUser();
-  });
-
   $scope.showLogOutMenu = function() {
 
     var logOutPopup = $ionicPopup.show({
@@ -21,8 +17,8 @@ angular.module('starter.controllers').controller('homeController', function($sco
       // Facebook logout
       facebookConnectPlugin.logout(function() {
           console.log("Success logout");
-          storageService.deleteUser();
-          $rootScope.$emit('Local/FacebookLogin', false);
+          storageService.deleteLocalUser();
+          $rootScope.$emit('Local/FacebookLogin', null);
           $state.go('facebook');
           logOutPopup.close();
         },
