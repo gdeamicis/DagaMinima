@@ -23,6 +23,8 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
     }
   });
   // if none of the above states are matched, use this as the fallback
-
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise(function($injector, $location) {
+    var $state = $injector.get("$state");
+    $state.go("home");
+  });
 });
