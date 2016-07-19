@@ -1,11 +1,15 @@
 'use strict';
 
-angular.module('starter.controllers').controller('indexController', function($scope, $rootScope, storageService, $ionicPopup, $state) {
+angular.module('starter.controllers').controller('indexController', function($scope, $rootScope, storageService, $ionicPopup, $state, platformService) {
 
   $scope.$on('$ionicView.enter', function() {
-    $scope.user = storageService.getLocalUser();
-    if (!$scope.user.userID) {
-      $scope.user = null;
+    if (platformService.isCordova) {
+      $scope.user = storageService.getLocalUser();
+      if (!$scope.user.userID) {
+        $scope.user = null;
+      }
+    } else {
+      $scope.user = true;
     }
   });
 
