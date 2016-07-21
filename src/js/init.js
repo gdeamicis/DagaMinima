@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter').run(function($rootScope, $state, $log, $ionicPlatform, storageService) {
+angular.module('starter').run(function($rootScope, $state, $log, $ionicPlatform, storageService, platformService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,12 +25,20 @@ angular.module('starter').run(function($rootScope, $state, $log, $ionicPlatform,
 
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
     console.log('Route change from:' + (fromState.name || '-') + ' to:' + toState.name);
-    if (toState.name == 'facebook') {
-      return;
-    }
-    if (!storageService.getLocalUser().userID && fromState.name != 'facebook') {
-      event.preventDefault();
-      $state.go('facebook');
+
+    if (platformService.isCordova) {
+      if (toState.name == 'facebook') {
+        return;
+      }
+      if (!storageService.getLocalUser().userID && fromState.name != 'facebook') {
+        event.preventDefault();
+        $state.go('facebook');
+      }
+    } else {
+      console.log("There is not a cordova device")
+      if (toState.name == 'home') {
+        return;
+      }
     }
   });
 })
