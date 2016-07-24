@@ -1,16 +1,15 @@
-.profile-list {
-  background-color: #202020;
-  text-align: center;
- .item {
-   border-style: none;
-   color: white;
-   background-color: #202020;
- }
- img {
-	width: 50%;
-	height: 50%;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
- }
+.profile-picture {
+  height: 70px;
+  width: 70px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+}
+.profile-name {
+  font-size: 30px;
+  font-weight: 500;
+}
+.profile-email {
+  color: gray;
+  font-size: 13px;
 }

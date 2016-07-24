@@ -78,4 +78,6 @@
         <variable name="APP_ID" value="633179116851646" />
         <variable name="APP_NAME" value="DagaMinima" />
     </plugin>
+    <plugin name="cordova-plugin-image-picker" spec="https://github.com/wymsee/cordova-imagePicker.git" />
+    <plugin name="cordova-plugin-camera" spec="~2.2.0" />
 </widget>
