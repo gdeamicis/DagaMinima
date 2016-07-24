@@ -5,7 +5,16 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
 
   $stateProvider
 
-    .state('facebook', {
+    .state('publish ', {
+    url: '/publish',
+    views: {
+      'menuContent': {
+        templateUrl: 'views/publish.html',
+      }
+    }
+  })
+
+  .state('facebook', {
     url: '/facebook',
     views: {
       'menuContent': {

@@ -1,7 +1,13 @@
 <ion-content>
-    <ion-list class="profile-list">
-      <ion-item><img ng-src="{{user.picture}}"></img></ion-item>
-      <ion-item>{{user.name}}</ion-item>
-      <ion-item><a class="button button-assertive button-block" ng-click="showLogOutMenu()">Log Out</a></ion-item>
-    </ion-list>
+  <div class="row">
+  <div class="col col-center"><img class="profile-picture" ng-src="{{user.picture}}"></img></div>
+  <div class="col m10t"><span class="profile-name">{{user.name}}</span><br><span class="profile-email">{{user.email}}</span><br></div>
+</div>
+<div class="list">
+  <a menu-close href="#/home" class="item item-icon-left"><i class="icon ion-home"></i>Home</a>
+  <a menu-close href="#/wishList" class="item item-icon-left"><i class="icon ion-ios-paw"></i>Wish Lists</a>
+  <a menu-close href="#/publish" class="item item-icon-left"><i class="icon ion-camera"></i>Publish</a>
+  <a menu-close href="#/settings" class="item item-icon-left"><i class="icon ion-settings"></i>Settings</a>
+  <a menu-close href="#/help" class="item item-icon-left"><i class="icon ion-help-buoy"></i>Help</a>
+</div>
 </ion-content>
