@@ -18,6 +18,11 @@ angular.module('starter.controllers').controller('indexController', function($sc
     if (user) $state.go('home');
   });
 
+  $rootScope.go = function (path) {
+        $state.go(path);
+        console.log('Routed by index');
+    };
+
   $scope.showLogOutMenu = function() {
 
     var logOutPopup = $ionicPopup.show({

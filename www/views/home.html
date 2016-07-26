@@ -1,22 +1,19 @@
-<ion-view ng-controller="homeController">
-  <ion-content view-title="Home">
-    <button ng-click="go('home')" class="button button-full button-positive">
-      <i class="icon ion-home"></i>Home
-    </button>
+<ion-view view-title="{{'home_title' | translate}}" ng-controller="homeController">
+  <ion-content>
     <button ng-click="go('adoption')" class="button button-full button-balanced">
-      <i class="icon ion-ios-paw"></i>Adoption
+      <i class="icon ion-ios-paw"></i> {{"home_adoption" | translate}}
     </button>
     <button ng-click="go('home')" class="button button-full button-energized">
-      <i class="icon ion-ios-analytics"></i> Cross
+      <i class="icon ion-ios-analytics"></i> {{"home_cross" | translate}}
     </button>
     <button ng-click="go('home')" class="button button-full button-assertive">
-      <i class="icon ion-medkit"></i> Veterinary
+      <i class="icon ion-medkit"></i> {{"home_veterinary" | translate}}
     </button>
     <button ng-click="go('home')" class="button button-full button-royal">
-      <i class="icon ion-android-walk"></i> Pet walk
+      <i class="icon ion-android-walk"></i> {{"home_pet_walk" | translate}}
     </button>
     <button ng-click="go('home')" class="button button-full button-dark">
-      <i class="icon ion-ios-flag-outline"></i> Wanted
+      <i class="icon ion-ios-flag-outline"></i> {{"home_wanted" | translate}}
     </button>
   </ion-content>
 </ion-view>
