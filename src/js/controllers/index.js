@@ -20,7 +20,7 @@ angular.module('starter.controllers').controller('indexController', function($sc
 
   $rootScope.go = function (path) {
         $state.go(path);
-        console.log('Routed by index');
+        console.log('Transition to ' + path);
     };
 
   $scope.showLogOutMenu = function() {
