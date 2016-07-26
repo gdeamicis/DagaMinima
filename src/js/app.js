@@ -12,6 +12,7 @@ var modules = [
   'starter.controllers',
   'starter.services',
   'ngCordova',
+  'pascalprecht.translate',
 ];
 
 var starter = angular.module('starter', modules);
