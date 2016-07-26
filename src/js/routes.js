@@ -23,6 +23,15 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
     }
   })
 
+  .state('adoption', {
+    url: '/adoption',
+    views: {
+      'menuContent': {
+        templateUrl: 'views/adoption.html',
+      }
+    }
+  })
+
   .state('home', {
     url: '/home',
     views: {

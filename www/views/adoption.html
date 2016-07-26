@@ -1,0 +1,36 @@
+<ion-view ng-controller="adoptionController">
+  <ion-content class="slides" scroll="false">
+    <img class="paw" ng-src="./img/paw.png"></img>
+    <ion-slides options="options" slider="data.slider">
+      <ion-slide-page>
+        <div class="item item-avatar">
+            <img ng-src="./img/mcfly.jpg">
+            <h2>Marty McFly</h2>
+            <p>July 25, 2016</p>
+        </div>
+        <div class="img-container"><img ng-src="./img/img1.jpg"></img></div>
+      </ion-slide-page>
+      <ion-slide-page>
+        <div class="item item-avatar">
+            <img ng-src="./img/Evange.jpg">
+            <h2>Evangelina Anderson</h2>
+            <p>December 13, 2015</p>
+        </div>
+        <div class="img-container"><img ng-src="./img/img2.jpeg"></img></div>
+      </ion-slide-page>
+      <ion-slide-page>
+        <div class="item item-avatar">
+            <img ng-src="./img/pipo.jpg">
+            <h2>Pipo Cipolatti</h2>
+            <p>August 02, 2016</p>
+        </div>
+        <div class="img-container"><img ng-src="./img/img3.jpeg"></img></div>
+      </ion-slide-page>
+    </ion-slides>
+    <div class="description">
+      <div class="item item-text-wrap">
+        {{description}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

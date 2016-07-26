@@ -1,21 +1,22 @@
 <ion-view ng-controller="homeController">
-  <ion-content class="slides" scroll="false">
-    <img class="paw" ng-src="./img/paw.png"></img>
-    <ion-slides options="options" slider="data.slider">
-      <ion-slide-page>
-        <div class="img-container"><img ng-src="./img/img1.jpg"></img></div>
-      </ion-slide-page>
-      <ion-slide-page>
-        <div class="img-container"><img ng-src="./img/img2.jpeg"></img></div>
-      </ion-slide-page>
-      <ion-slide-page>
-        <div class="img-container"><img ng-src="./img/img3.jpeg"></img></div>
-      </ion-slide-page>
-    </ion-slides>
-    <div class="description">
-      <div class="item item-text-wrap">
-        {{description}}
-      </div>
-    </div>
+  <ion-content view-title="Home">
+    <button ng-click="go('home')" class="button button-full button-positive">
+      <i class="icon ion-home"></i>Home
+    </button>
+    <button ng-click="go('adoption')" class="button button-full button-balanced">
+      <i class="icon ion-ios-paw"></i>Adoption
+    </button>
+    <button ng-click="go('home')" class="button button-full button-energized">
+      <i class="icon ion-ios-analytics"></i> Cross
+    </button>
+    <button ng-click="go('home')" class="button button-full button-assertive">
+      <i class="icon ion-medkit"></i> Veterinary
+    </button>
+    <button ng-click="go('home')" class="button button-full button-royal">
+      <i class="icon ion-android-walk"></i> Pet walk
+    </button>
+    <button ng-click="go('home')" class="button button-full button-dark">
+      <i class="icon ion-ios-flag-outline"></i> Wanted
+    </button>
   </ion-content>
 </ion-view>
