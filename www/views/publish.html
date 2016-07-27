@@ -1,8 +1,8 @@
-<ion-view view-title="Publish" ng-controller="publishController" class="publish">
+<ion-view view-title="{{'publish_title' | translate}}" ng-controller="publishController" class="publish">
   <ion-content scroll="true">
     <div ng-show="!imgURI">
-      <button class="button button-block" ng-click="fromCamera()">Camera</button>
-      <button class="button button-block" ng-click="fromGallery()">Gallery</button>
+      <button class="button button-block" ng-click="fromCamera()">{{"publish_camera" | translate}}</button>
+      <button class="button button-block" ng-click="fromGallery()">{{"publish_gallery" | translate}}</button>
     </div>
     <div class="row responsive-sm" ng-show="imgURI !== undefined">
       <div class="col">
