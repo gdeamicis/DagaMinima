@@ -5,7 +5,7 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
 
   $stateProvider
 
-    .state('publish ', {
+  .state('publish', {
     url: '/publish',
     views: {
       'menuContent': {

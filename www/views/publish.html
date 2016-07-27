@@ -1,6 +1,28 @@
 <ion-view view-title="Publish" ng-controller="publishController">
-  <ion-content scroll="false">
-    <button class="button button-block" ng-click="fromCamera()">Camera</button>
-    <button class="button button-block" ng-click="fromGallery()">Gallery</button>
+  <ion-content scroll="true">
+    <div ng-show="imgURI === undefined">
+      <button class="button button-block" ng-click="fromCamera()">Camera</button>
+      <button class="button button-block" ng-click="fromGallery()">Gallery</button>
+    </div>
+    <div class="row responsive-sm" ng-show="imgURI !== undefined">
+      <div class="col">
+        <img ng-src="{{imgURI}}" style="width:100%; height:auto;">
+      </div>
+    </div>
+    <div class="row responsive-sm" ng-show="imgURI !== undefined">
+      <div class="col">
+        <textarea name="description" ng-model="incident.comment" style="width:100%"></textarea>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
+
+<!--
+<div class="row publish" ng-if="imagesNotEmpty">
+  <div class = "col col-50" ng-repeat="image in images">
+    <div class="img-container"><img ng-src="{{image}}" style="width:100%; height:auto;"></img></div>
+    <textarea name="description" ng-model="incident.comment">
+    </textarea>
+  </div>
+</div>
+-->
