@@ -10,24 +10,25 @@ angular.module('starter.controllers').controller('publishController', function($
     var myPopup = $ionicPopup.show({
       title: 'Choose a Category',
       scope: $scope,
+      cssClass: 'popup-vertical-buttons',
       buttons: [
         {
           text: $translate.instant('publish_adopt'),
-          type: 'button-positive',
+          type: 'button-full button-positive',
           onTap: function(e) {
             return $scope.data.category;
           }
         },
         {
           text: $translate.instant('publish_lost'),
-          type: 'button-positive',
+          type: 'button-full button-positive',
           onTap: function(e) {
             return $scope.data.category;
           }
         },
         {
           text: $translate.instant('publish_found'),
-          type: 'button-positive',
+          type: 'button-full button-positive',
           onTap: function(e) {
             return $scope.data.category;
           }
