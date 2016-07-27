@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup) {
+angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup, $translate) {
 
   $scope.images = [];
 
@@ -12,21 +12,21 @@ angular.module('starter.controllers').controller('publishController', function($
       scope: $scope,
       buttons: [
         {
-          text: 'Adopt',
+          text: $translate.instant('publish_adopt'),
           type: 'button-positive',
           onTap: function(e) {
             return $scope.data.category;
           }
         },
         {
-          text: 'Lost',
+          text: $translate.instant('publish_lost'),
           type: 'button-positive',
           onTap: function(e) {
             return $scope.data.category;
           }
         },
         {
-          text: 'Found',
+          text: $translate.instant('publish_found'),
           type: 'button-positive',
           onTap: function(e) {
             return $scope.data.category;
