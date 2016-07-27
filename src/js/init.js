@@ -30,10 +30,11 @@ angular.module('starter').run(function($rootScope, $state, $log, $ionicPlatform,
       if (toState.name == 'facebook') {
         return;
       }
+      /*
       if (!storageService.getLocalUser().userID && fromState.name != 'facebook') {
         event.preventDefault();
         $state.go('facebook');
-      }
+      }*/
     } else {
       console.log("There is not a cordova device")
       if (toState.name == 'home') {
