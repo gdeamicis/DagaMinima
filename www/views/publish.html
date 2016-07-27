@@ -7,14 +7,16 @@
       <button class="button button-block icon ion-camera button-positive" ng-click="fromCamera()"></button>
       <button class="button button-block icon ion-images button-calm" ng-click="fromGallery()"></button>
     </div>
-    <label class="item item-input item-floating-label" ng-show="imgURI !== undefined">
-      <span class="input-label">{{'publish_description' | translate}}</span>
-      <input type="text" placeholder="Description">
-    </label>
-    <button ng-show="imgURI !== undefined" class="button button-block button-stable" ng-click="categoryPopup()">{{'publish_category' | translate}}</button>
-    <div class="row responsive-sm" ng-show="imgURI !== undefined">
-      <div class="col">
-        <img class="image" ng-src="{{imgURI}}">
+    <div ng-show="imgURI">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">{{'publish_description' | translate}}</span>
+        <input type="text" placeholder="Description">
+      </label>
+      <button class="button button-block button-stable" ng-click="categoryPopup()">{{'publish_category' | translate}}</button>
+      <div class="row responsive-sm">
+        <div class="col">
+          <img class="image" ng-src="{{imgURI}}">
+        </div>
       </div>
     </div>
   </ion-content>
