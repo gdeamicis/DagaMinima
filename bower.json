@@ -10,5 +10,8 @@
     "angular-translate-loader-static-files": "~2.11.1",
     "ngCordova": "^0.1.27-alpha",
     "ng-lodash": "^0.5.0"
+  },
+  "resolutions": {
+    "angular": "1.5.3"
   }
 }

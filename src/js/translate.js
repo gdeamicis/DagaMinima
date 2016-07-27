@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter').config(function($translateProvider, lodash) {
+angular.module('starter').config(function($translateProvider) {
 
     $translateProvider.useStaticFilesLoader({
       prefix: 'data/locale-',
@@ -11,7 +11,7 @@ angular.module('starter').config(function($translateProvider, lodash) {
     $translateProvider.useSanitizeValueStrategy('escape');
     $translateProvider.forceAsyncReload(true);
   })
-  .run(function($ionicPlatform, $translate) {
+  .run(function($ionicPlatform, $translate, lodash) {
     $ionicPlatform.ready(function() {
 
       var availableLanguages = [{
