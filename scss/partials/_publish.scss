@@ -1,4 +1,9 @@
 .publish {
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
+    .image{
+      width: 100%;
+      height: auto;
+    }
+    .description{
+      width: 100%;
+    }
 }
