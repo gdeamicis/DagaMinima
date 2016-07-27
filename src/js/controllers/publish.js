@@ -1,8 +1,40 @@
 'use strict';
 
-angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state) {
+angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup) {
 
   $scope.images = [];
+
+  $scope.categoryPopup = function() {
+    $scope.data = {};
+
+    var myPopup = $ionicPopup.show({
+      title: 'Choose a Category',
+      scope: $scope,
+      buttons: [
+        {
+          text: 'Adopt',
+          type: 'button-positive',
+          onTap: function(e) {
+            return $scope.data.category;
+          }
+        },
+        {
+          text: 'Lost',
+          type: 'button-positive',
+          onTap: function(e) {
+            return $scope.data.category;
+          }
+        },
+        {
+          text: 'Found',
+          type: 'button-positive',
+          onTap: function(e) {
+            return $scope.data.category;
+          }
+        },
+      ]
+    });
+  }
 
   $scope.fromCamera = function() {
     var options = {
