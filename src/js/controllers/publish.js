@@ -9,7 +9,7 @@ angular.module('starter.controllers').controller('publishController', function($
     $scope.data = {};
 
     var myPopup = $ionicPopup.show({
-      title: 'Choose a Category',
+      title: $translate.instant('publish_categoryChoosePopup'),
       scope: $scope,
       cssClass: 'popup-vertical-buttons',
       buttons: [
@@ -17,21 +17,21 @@ angular.module('starter.controllers').controller('publishController', function($
           text: $translate.instant('publish_adopt'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            $scope.formData.category = 'Adopt';
+            $scope.formData.category = $translate.instant('publish_adopt');
           }
         },
         {
-          text: $translate.instant('publish_lost'),
+          text: $translate.instant('publish_wanted'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            $scope.formData.category = 'Lost';
+            $scope.formData.category = $translate.instant('publish_wanted');
           }
         },
         {
           text: $translate.instant('publish_found'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            $scope.formData.category = 'Found';
+            $scope.formData.category = $translate.instant('publish_found');
           }
         },
       ]
@@ -44,11 +44,11 @@ angular.module('starter.controllers').controller('publishController', function($
     if($scope.formData.category){
 
       var confirmPopup = $ionicPopup.confirm({
-        title: 'Publicate',
+        title: $translate.instant('publish_publicatePopup'),
         cssClass: 'popup-vertical-buttons',
-        template: 'Are you sure you want to publicate this on ' + $scope.formData.category + '?',
-        cancelText: 'Mmm... Not Yet',
-        okText: 'Yeah! Upload it!',
+        template: $translate.instant('publish_publicatePopupText') + $scope.formData.category + '?',
+        cancelText: $translate.instant('publish_publicatePopupCancel'),
+        okText: $translate.instant('publish_publicatePopupOk'),
         okType: 'button-balanced'
       });
 
@@ -62,13 +62,10 @@ angular.module('starter.controllers').controller('publishController', function($
             photo: 1,
             category: $scope.formData.category
           }
-          console.log(request.description);
-          console.log(request.category);
           //UPLOAD
 
           //ERASE DESCRIPTION TEXT
-          document.getElementById("descriptionText").value='';
-          document.getElementById("descriptionLabel").hide();
+          $scope.descriptionText = '';
           //GO HOME
           $state.go('home');
         }
@@ -76,8 +73,8 @@ angular.module('starter.controllers').controller('publishController', function($
     } else { //If category unselected
 
       var alertCategoryPopup = $ionicPopup.alert({
-        title: 'Category not selected!',
-        template: 'Please, select a category'
+        title: $translate.instant('publish_categoryAlertPopup'),
+        template: $translate.instant('publish_categoryAlertPopupText')
       })
     }
 
@@ -152,12 +149,8 @@ angular.module('starter.controllers').controller('publishController', function($
   }*/
 
   var deregister = $ionicPlatform.registerBackButtonAction(function() {
-    if($scope.imgURI !== undefined){
-      $scope.imgURI = undefined;
-    } else {
-      $state.go('home');
-    }
+    if(!$scope.imgURI) $state.go('home');
+    $scope.imgURI = null;
   }, 101);
-
   $scope.$on('$destroy', deregister);
 });

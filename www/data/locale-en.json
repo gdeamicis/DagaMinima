@@ -23,10 +23,18 @@
     "publish_adopt": "Adopt",
     "publish_camera": "Camera",
     "publish_category":"Category",
+    "publish_categoryAlertPopup":"Category not selected!",
+    "publish_categoryAlertPopupText":"Please, select a category",
+    "publish_categoryChoosePopup":"Choose a Category",
     "publish_description":"Description",
     "publish_found":"Found",
     "publish_gallery": "Galery",
     "publish_lost":"Lost",
+    "publish_publicatePopup":"Publicate",
+    "publish_publicatePopupCancel":"Mmm... Not Yet",
+    "publish_publicatePopupOk":"Yeah! Upload it!",
+    "publish_publicatePopupText":"Publicate this on ",
+    "publish_wanted":"Wanted",
 
     "posts_title": "My Posts",
 

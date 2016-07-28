@@ -1,15 +1,15 @@
-<ion-view ng-controller="publishController" class="publish">
+<ion-view ng-controller="publishController" class="publish" cache-view="false">
   <ion-nav-title>{{'publish_title' | translate}}</ion-nav-title>
   <ion-nav-buttons side="right">
-    <i ng-click="sendPopup()" class="icon ion-android-send size-24 m5"></i>
+    <i ng-show="imgURI" ng-click="sendPopup()" class="icon ion-android-send size-24 m5"></i>
   </ion-nav-buttons>
   <ion-content scroll="false">
     <div ng-show="!imgURI">
       <button class="button button-block icon ion-camera button-positive" ng-click="fromCamera()"></button>
       <button class="button button-block icon ion-images button-calm" ng-click="fromGallery()"></button>
     </div>
-    <div >
-      <label id='descriptionLabel' class="item item-input item-floating-label">
+    <div ng-show="imgURI">
+      <label class="item item-input item-floating-label">
         <span class="input-label">{{'publish_description' | translate}}</span>
         <textarea id='descriptionText' ng-model="formData.description" type="text" placeholder="{{'publish_description' | translate}}">
         </textarea>
