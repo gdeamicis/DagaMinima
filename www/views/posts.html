@@ -1,0 +1,12 @@
+<ion-view ng-controller="postsController">
+  <ion-nav-title>{{'posts_title' | translate}}</ion-nav-title>
+  <ion-content scroll="false">
+    <div class="list">
+      <a ng-repeat="publication in publications | orderBy : 'postDate'" class="item item-thumbnail-left item-text-wrap" href="#">
+        <img src="{{publication.principalImage}}">
+        <time>{{publication.postDate * 1000 | amTimeAgo}}</time>
+        <p>{{publication.description}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

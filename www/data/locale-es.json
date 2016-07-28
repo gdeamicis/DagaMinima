@@ -28,11 +28,13 @@
     "publish_gallery": "Galería",
     "publish_lost":"Perdido",
 
+    "posts_title": "Mis Publicaciones",
 
     "settings_title": "Configuración",
     "settings_select_language": "Seleccione el idioma",
 
     "sidebar_home": "Inicio",
+    "sidebar_posts": "Mis publicaciones",
     "sidebar_wish_list": "Lista de deseos",
     "sidebar_publish": "Publicar",
     "sidebar_settings": "Configuración",

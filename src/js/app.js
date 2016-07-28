@@ -13,6 +13,7 @@ var modules = [
   'ngLodash',
   'pascalprecht.translate',
   'ngCookies',
+  'angularMoment',
   'starter.controllers',
   'starter.services',
 ];

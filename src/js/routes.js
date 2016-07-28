@@ -5,7 +5,7 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
 
   $stateProvider
 
-  .state('publish', {
+    .state('publish', {
     url: '/publish',
     views: {
       'menuContent': {
@@ -19,6 +19,15 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
     views: {
       'menuContent': {
         templateUrl: 'views/facebook.html',
+      }
+    }
+  })
+
+  .state('posts', {
+    url: '/posts',
+    views: {
+      'menuContent': {
+        templateUrl: 'views/posts.html',
       }
     }
   })
