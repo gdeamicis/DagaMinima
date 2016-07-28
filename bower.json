@@ -12,7 +12,7 @@
     "ng-lodash": "^0.5.0",
     "angular-translate-storage-local": "^2.11.1",
     "angular-translate-storage-cookie": "^2.11.1",
-    "angular-cookies": "^1.5.8",
+    "angular-cookies": "^1.5.8"
   },
   "resolutions": {
     "angular": "1.5.3"
