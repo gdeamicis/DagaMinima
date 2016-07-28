@@ -3,6 +3,7 @@
 angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup, $translate) {
 
   $scope.images = [];
+  $scope.formData = {};
 
   $scope.categoryPopup = function() {
     $scope.data = {};
@@ -16,25 +17,71 @@ angular.module('starter.controllers').controller('publishController', function($
           text: $translate.instant('publish_adopt'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            return $scope.data.category;
+            $scope.formData.category = 'Adopt';
           }
         },
         {
           text: $translate.instant('publish_lost'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            return $scope.data.category;
+            $scope.formData.category = 'Lost';
           }
         },
         {
           text: $translate.instant('publish_found'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            return $scope.data.category;
+            $scope.formData.category = 'Found';
           }
         },
       ]
     });
+  }
+
+  $scope.sendPopup = function() {
+    $scope.data = {};
+
+    if($scope.formData.category){
+
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Publicate',
+        cssClass: 'popup-vertical-buttons',
+        template: 'Are you sure you want to publicate this on ' + $scope.formData.category + '?',
+        cancelText: 'Mmm... Not Yet',
+        okText: 'Yeah! Upload it!',
+        okType: 'button-balanced'
+      });
+
+      confirmPopup.then(function(res) {
+        if(res){
+
+          //DEFINE REQUEST
+          var request = {
+            userID: 1,
+            description: $scope.formData.description,
+            photo: 1,
+            category: $scope.formData.category
+          }
+          console.log(request.description);
+          console.log(request.category);
+          //UPLOAD
+
+          //ERASE DESCRIPTION TEXT
+          document.getElementById("descriptionText").value='';
+          document.getElementById("descriptionLabel").hide();
+          //GO HOME
+          $state.go('home');
+        }
+      })
+    } else { //If category unselected
+
+      var alertCategoryPopup = $ionicPopup.alert({
+        title: 'Category not selected!',
+        template: 'Please, select a category'
+      })
+    }
+
+
   }
 
   $scope.fromCamera = function() {
