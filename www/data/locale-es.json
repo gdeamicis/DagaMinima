@@ -1,5 +1,10 @@
 {
     "adoption_title": "Adopción",
+    "adoption_adopt": "Adoptar",
+    "adoption_wanted": "Buscados",
+    "adoption_found": "Encontrados",
+    "adoption_comments": "Comentarios",
+    "adoption_likes": "Me gusta",
 
     "facebook_title": "Bienvenido",
     "facebook": "Facebook",
