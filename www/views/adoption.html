@@ -8,7 +8,7 @@
           <div class="item item-avatar">
             <img ng-src="{{publication.authorAvatar}}">
             <h2>{{publication.authorName}}</h2>
-            <p>{{publication.postDate}}</p>
+            <p>{{publication.postDate * 1000 | amTimeAgo}}</p>
           </div>
           <div class="item item-body">
             <img class="full-image" src="{{publication.principalImage}}">

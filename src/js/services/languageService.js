@@ -1,5 +1,5 @@
 'use strict';
-angular.module('starter.services').factory('languageService', function languageService($translate, lodash) {
+angular.module('starter.services').factory('languageService', function languageService($translate, lodash, amMoment) {
   var root = {};
 
   root.availableLanguages = [{
@@ -26,6 +26,7 @@ angular.module('starter.services').factory('languageService', function languageS
         // Set only available languages
         language = root.isAvailableLanguage(language);
 
+        amMoment.changeLocale(language);
         $translate.use(language).then(function(data) {
           console.log("SUCCESS -> " + data);
         }, function(error) {
