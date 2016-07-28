@@ -20,8 +20,14 @@
     "home_wanted": "Buscados",
 
     "publish_title": "Publicar",
+    "publish_adopt": "Adopción",
     "publish_camera": "Cámara",
+    "publish_category":"Categoría",
+    "publish_description":"Descripción",
+    "publish_found":"Encontrado",
     "publish_gallery": "Galería",
+    "publish_lost":"Perdido",
+
 
     "settings_title": "Configuración",
     "settings_select_language": "Seleccione el idioma",

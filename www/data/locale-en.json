@@ -20,8 +20,14 @@
     "home_wanted": "Wanted",
 
     "publish_title": "Publish",
+    "publish_adopt": "Adopt",
     "publish_camera": "Camera",
+    "publish_category":"Category",
+    "publish_description":"Description",
+    "publish_found":"Found",
     "publish_gallery": "Galery",
+    "publish_lost":"Lost",
+
 
     "settings_title": "Settings",
     "settings_select_language": "Select language",
