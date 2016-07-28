@@ -20,11 +20,6 @@ angular.module('starter.controllers').controller('adoptionController', function(
   });
 
   $scope.$on("$ionicSlides.slideChangeEnd", function(event, data) {
-    // note: the indexes are 0-based
-
-    if (data.slider.activeIndex == 0) $scope.description = "Este es mi perro es el mejor perro del mundo por favor adoptalo se llama Jesú."
-    if (data.slider.activeIndex == 1) $scope.description = "Este es mi perro Carlos, adoptalo se la banca"
-    if (data.slider.activeIndex == 2) $scope.description = "Miralo a Juan quiere un familia"
 
     $timeout(function() {
       $scope.$apply();
@@ -33,4 +28,36 @@ angular.module('starter.controllers').controller('adoptionController', function(
     $scope.activeIndex = data.activeIndex;
     $scope.previousIndex = data.previousIndex;
   });
+
+  /*This data will be removed when the backend work well */
+  $scope.publications = [
+        {
+          authorAvatar: './img/mcfly.jpg',
+          authorName: 'Marty McFly',
+          postDate: 'July 25, 2016',
+          principalImage: './img/img1.jpg',
+          description: 'Este es mi perro es el mejor perro del mundo por favor adoptalo se llama Jesú.',
+          likesCount: 1,
+          commentsCount: 5
+        },
+        {
+          authorAvatar: './img/Evange.jpg',
+          authorName: 'Evangelina Anderson',
+          postDate: 'December 13, 2015',
+          principalImage: './img/img2.jpeg',
+          description: 'Este es mi perro Carlos, adoptalo se la banca',
+          likesCount: 35,
+          commentsCount: 556
+        },
+        {
+          authorAvatar: './img/pipo.jpg',
+          authorName: 'Pipo Cipolatti',
+          postDate: 'August 02, 2016',
+          principalImage: './img/img3.jpeg',
+          description: 'Miralo a Juan quiere un familia',
+          likesCount: 23,
+          commentsCount: 13
+        }
+    ];
+
 });
