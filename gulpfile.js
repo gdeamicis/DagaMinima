@@ -37,13 +37,16 @@ gulp.task('concat', function() {
 
 gulp.task('concat-angular', function() {
   return gulp.src(['bower_components/angular/angular.js',
+    'bower_components/ionic/js/ionic-angular.js',
     'bower_components/angular-animate/angular-animate.js',
     'bower_components/angular-sanatize/angular-sanatize.js',
     'bower_components/ng-lodash/build/ng-lodash.js',
     'bower_components/angular-translate/angular-translate.js',
     'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+    'bower_components/angular-cookies/angular-cookies.js',
+    'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
+    'bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
-    'bower_components/ionic/js/ionic-angular.js',
     'bower_components/ngCordova/dist/ng-cordova.js',
     'bower_components/ngCordova/dist/ng-cordova-mocks.js'])
     .pipe(concat('angular.js'))

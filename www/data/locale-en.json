@@ -1,5 +1,10 @@
 {
     "adoption_title": "Adoption",
+    "adoption_adopt": "Adopt",
+    "adoption_wanted": "Wanted",
+    "adoption_found": "Found",
+    "adoption_comments": "Comments",
+    "adoption_likes": "Likes",
 
     "facebook_title": "Welcome",
     "facebook": "Facebook",
@@ -26,8 +31,6 @@
 
     "settings_title": "Settings",
     "settings_select_language": "Select language",
-    "settings_opt_english": "English",
-    "settings_opt_spanish": "Spanish",
 
     "sidebar_home": "Home",
     "sidebar_wish_list": "Wish Lists",
