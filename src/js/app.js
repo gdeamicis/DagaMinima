@@ -12,6 +12,7 @@ var modules = [
   'ngCordova',
   'ngLodash',
   'pascalprecht.translate',
+  'ngCookies',
   'starter.controllers',
   'starter.services',
 ];
