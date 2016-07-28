@@ -3,12 +3,13 @@
 angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup, $translate) {
 
   $scope.images = [];
+  $scope.formData = {};
 
   $scope.categoryPopup = function() {
     $scope.data = {};
 
     var myPopup = $ionicPopup.show({
-      title: 'Choose a Category',
+      title: $translate.instant('publish_categoryChoosePopup'),
       scope: $scope,
       cssClass: 'popup-vertical-buttons',
       buttons: [
@@ -16,25 +17,68 @@ angular.module('starter.controllers').controller('publishController', function($
           text: $translate.instant('publish_adopt'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            return $scope.data.category;
+            $scope.formData.category = $translate.instant('publish_adopt');
           }
         },
         {
-          text: $translate.instant('publish_lost'),
+          text: $translate.instant('publish_wanted'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            return $scope.data.category;
+            $scope.formData.category = $translate.instant('publish_wanted');
           }
         },
         {
           text: $translate.instant('publish_found'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            return $scope.data.category;
+            $scope.formData.category = $translate.instant('publish_found');
           }
         },
       ]
     });
+  }
+
+  $scope.sendPopup = function() {
+    $scope.data = {};
+
+    if($scope.formData.category){
+
+      var confirmPopup = $ionicPopup.confirm({
+        title: $translate.instant('publish_publicatePopup'),
+        cssClass: 'popup-vertical-buttons',
+        template: $translate.instant('publish_publicatePopupText') + $scope.formData.category + '?',
+        cancelText: $translate.instant('publish_publicatePopupCancel'),
+        okText: $translate.instant('publish_publicatePopupOk'),
+        okType: 'button-balanced'
+      });
+
+      confirmPopup.then(function(res) {
+        if(res){
+
+          //DEFINE REQUEST
+          var request = {
+            userID: 1,
+            description: $scope.formData.description,
+            photo: 1,
+            category: $scope.formData.category
+          }
+          //UPLOAD
+
+          //ERASE DESCRIPTION TEXT
+          $scope.descriptionText = '';
+          //GO HOME
+          $state.go('home');
+        }
+      })
+    } else { //If category unselected
+
+      var alertCategoryPopup = $ionicPopup.alert({
+        title: $translate.instant('publish_categoryAlertPopup'),
+        template: $translate.instant('publish_categoryAlertPopupText')
+      })
+    }
+
+
   }
 
   $scope.fromCamera = function() {
@@ -105,12 +149,8 @@ angular.module('starter.controllers').controller('publishController', function($
   }*/
 
   var deregister = $ionicPlatform.registerBackButtonAction(function() {
-    if($scope.imgURI !== undefined){
-      $scope.imgURI = undefined;
-    } else {
-      $state.go('home');
-    }
+    if(!$scope.imgURI) $state.go('home');
+    $scope.imgURI = null;
   }, 101);
-
   $scope.$on('$destroy', deregister);
 });
