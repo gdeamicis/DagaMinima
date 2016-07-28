@@ -1,4 +1,5 @@
-<ion-view view-title="{{'settings_title' | translate}}" ng-controller="settingsController">
+<ion-view ng-controller="settingsController">
+  <ion-nav-title>{{'settings_title' | translate}}</ion-nav-title>
   <ion-content>
     <div class="list">
       <div class="item item-divider item-icon-left">
@@ -6,8 +7,9 @@
         {{"settings_select_language" | translate}}
       </div>
       <ion-list class="item">
-        <ion-radio ng-click="changeLanguage('en')" ng-model="language" ng-value="'en'">{{"settings_opt_english" | translate}}</ion-radio>
-        <ion-radio ng-click="changeLanguage('es')" ng-model="language" ng-value="'es'">{{"settings_opt_spanish" | translate}}</ion-radio>
+        <ion-radio ng-repeat="language in availableLanguages" ng-value="language.isoCode" ng-model="currentLanguage"
+          ng-click="changeLanguage(language.isoCode)">{{language.name}}
+        </ion-radio>
       </ion-list>
     </div>
   </ion-content>

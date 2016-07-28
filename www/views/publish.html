@@ -1,5 +1,9 @@
-<ion-view view-title="{{'publish_title' | translate}}" ng-controller="publishController" class="publish">
-  <ion-content scroll="true">
+<ion-view ng-controller="publishController" class="publish">
+  <ion-nav-title>{{'publish_title' | translate}}</ion-nav-title>
+  <ion-nav-buttons side="primary">
+    <button  class="button button-clear icon ion-android-send"></button>
+  </ion-nav-buttons>
+  <ion-content scroll="false">
     <div ng-show="!imgURI">
       <button class="button button-block" ng-click="fromCamera()">{{"publish_camera" | translate}}</button>
       <button class="button button-block" ng-click="fromGallery()">{{"publish_gallery" | translate}}</button>

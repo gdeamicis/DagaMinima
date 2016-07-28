@@ -1,5 +1,5 @@
 {
-  "name": "HelloIonic",
+  "name": "hello-ionic",
   "private": "true",
   "devDependencies": {
     "angular-translate": "~2.11.1",
@@ -9,7 +9,10 @@
   "dependencies": {
     "angular-translate-loader-static-files": "~2.11.1",
     "ngCordova": "^0.1.27-alpha",
-    "ng-lodash": "^0.5.0"
+    "ng-lodash": "^0.5.0",
+    "angular-translate-storage-local": "^2.11.1",
+    "angular-translate-storage-cookie": "^2.11.1",
+    "angular-cookies": "^1.5.8",
   },
   "resolutions": {
     "angular": "1.5.3"

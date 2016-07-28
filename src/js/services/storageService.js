@@ -49,5 +49,9 @@ angular.module('starter.services').factory('storageService', function($http, $lo
     window.localStorage.removeItem('user');
   };
 
+  root.getCurrentLanguage = function() {
+    return window.localStorage.NG_TRANSLATE_LANG_KEY;
+  }
+
   return root;
 });
