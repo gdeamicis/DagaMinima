@@ -99,10 +99,6 @@ angular.module('starter.services').factory('sectionsService', function(lodash) {
     }).pubs;
   }
 
-  root.getSections = function() {
-    return root.sections;
-  };
-
   return root;
 
 })
