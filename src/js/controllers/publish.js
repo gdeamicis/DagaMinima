@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup, $translate) {
+angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup, $translate, storageService) {
 
   $scope.images = [];
   $scope.formData = {};
@@ -17,21 +17,21 @@ angular.module('starter.controllers').controller('publishController', function($
           text: $translate.instant('publish_adopt'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            $scope.formData.category = $translate.instant('publish_adopt');
+            $scope.formData.category = 'Adopt';
           }
         },
         {
           text: $translate.instant('publish_wanted'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            $scope.formData.category = $translate.instant('publish_wanted');
+            $scope.formData.category = 'Wanted';
           }
         },
         {
           text: $translate.instant('publish_found'),
           type: 'button-full button-positive',
           onTap: function(e) {
-            $scope.formData.category = $translate.instant('publish_found');
+            $scope.formData.category = 'Found';
           }
         },
       ]
@@ -46,7 +46,9 @@ angular.module('starter.controllers').controller('publishController', function($
       var confirmPopup = $ionicPopup.confirm({
         title: $translate.instant('publish_publicatePopup'),
         cssClass: 'popup-vertical-buttons',
-        template: $translate.instant('publish_publicatePopupText') + $scope.formData.category + '?',
+        template: $translate.instant('publish_publicatePopupText') +
+          ($scope.formData.category === 'Adopt' ? $translate.instant('publish_adopt') : $scope.formData.category === 'Wanted' ? $translate.instant('publish_wanted') : $translate.instant('publish_found')) +
+          '?',
         cancelText: $translate.instant('publish_publicatePopupCancel'),
         okText: $translate.instant('publish_publicatePopupOk'),
         okType: 'button-balanced'
@@ -57,11 +59,15 @@ angular.module('starter.controllers').controller('publishController', function($
 
           //DEFINE REQUEST
           var request = {
-            userID: 1,
+            userID: storageService.getLocalUser(),
             description: $scope.formData.description,
             photo: 1,
-            category: $scope.formData.category
+            category: $scope.formData.category,
+            timestamp: moment().unix()
           }
+
+          console.log(request);
+
           //UPLOAD
 
           //ERASE DESCRIPTION TEXT
