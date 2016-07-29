@@ -32,11 +32,11 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
     }
   })
 
-  .state('adoption', {
-    url: '/adoption',
+  .state('sections', {
+    url: '/sections',
     views: {
       'menuContent': {
-        templateUrl: 'views/adoption.html',
+        templateUrl: 'views/sections.html',
       }
     }
   })
