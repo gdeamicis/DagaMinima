@@ -1,0 +1,53 @@
+<ion-view ng-controller="sectionsController">
+  <ion-nav-title>
+    <div ng-switch on = "section">
+      <div ng-switch-when = "Adopt">
+        {{'adoption_adopt' | translate}}
+      </div>
+      <div ng-switch-when = "Wanted">
+        {{'adoption_wanted' | translate}}
+      </div>
+      <div ng-switch-when = "Lost">
+        {{'adoption_found' | translate}}
+      </div>
+    </div>
+  </ion-nav-title>
+  <ion-slides class = "slides has-header has-footer" options="options" slider="data.slider">
+    <ion-slide-page ng-repeat="publication in publications">
+      <ion-content>
+        <div class="list card">
+          <img class="paw" ng-src="./img/paw.png"></img>
+          <div class="item item-avatar">
+            <img ng-src="{{publication.authorAvatar}}">
+            <h2>{{publication.authorName}}</h2>
+            <p>{{publication.postDate * 1000 | amTimeAgo}}</p>
+          </div>
+          <div class="item item-body">
+            <img class="full-image" src="{{publication.principalImage}}">
+            <p>
+              {{publication.description}}
+            </p>
+            <p>
+              <a href="#" class="subdued">{{publication.likesCount}} {{"adoption_likes" | translate}}</a>
+              <a href="#" class="subdued">{{publication.commentsCount}} {{"adoption_comments" | translate}}</a>
+            </p>
+          </div>
+        </div>
+      </ion-content>
+    </ion-slide-page>
+  </ion-slides>
+  <div class="tabs tabs-icon-top">
+    <a class="tab-item" ng-style = "{'color': section == 'Adopt' ? '#00007f' : 'grey'}">
+      <i ng-click="changeSection('Adopt')" class="icon ion-ios-paw"></i>
+      {{"adoption_adopt" | translate}}
+    </a>
+    <a class="tab-item"  ng-style = "{'color': section == 'Wanted' ? '#00007f' : 'grey'}" >
+      <i ng-click="changeSection('Wanted')" class="icon ion-android-sad"></i>
+      {{"adoption_wanted" | translate}}
+    </a>
+    <a class="tab-item" ng-style = "{'color': section == 'Lost' ? '#00007f' : 'grey'}">
+      <i ng-click="changeSection('Lost')" class="icon ion-ios-flag"></i>
+      {{"adoption_found" | translate}}
+    </a>
+  </div>
+</ion-view>
