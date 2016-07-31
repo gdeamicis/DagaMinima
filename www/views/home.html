@@ -1,20 +1,53 @@
 <ion-view ng-controller="homeController">
-  <ion-nav-title>{{'home_title' | translate}}</ion-nav-title>
-  <ion-content>
-    <button ng-click="go('sections')" class="button button-full button-balanced">
-      <i class="icon ion-ios-paw"></i> {{"home_adoption" | translate}}
-    </button>
-    <button ng-click="go('home')" class="button button-full button-energized">
-      <i class="icon ion-ios-analytics"></i> {{"home_cross" | translate}}
-    </button>
-    <button ng-click="go('home')" class="button button-full button-assertive">
-      <i class="icon ion-medkit"></i> {{"home_veterinary" | translate}}
-    </button>
-    <button ng-click="go('home')" class="button button-full button-royal">
-      <i class="icon ion-android-walk"></i> {{"home_pet_walk" | translate}}
-    </button>
-    <button ng-click="go('home')" class="button button-full button-dark">
-      <i class="icon ion-ios-flag-outline"></i> {{"home_wanted" | translate}}
-    </button>
-  </ion-content>
+  <ion-nav-title>
+    <div ng-switch on = "section">
+      <div ng-switch-when = "Adopt">
+        {{'home_adopt' | translate}}
+      </div>
+      <div ng-switch-when = "Wanted">
+        {{'home_wanted' | translate}}
+      </div>
+      <div ng-switch-when = "Lost">
+        {{'home_found' | translate}}
+      </div>
+    </div>
+  </ion-nav-title>
+  <ion-slides class = "slides has-header has-footer" options="options" slider="data.slider">
+    <ion-slide-page ng-repeat="publication in publications">
+      <ion-content>
+        <div class="list card">
+          <div class="item item-avatar">
+            <img ng-src="{{publication.authorAvatar}}">
+            <h2>{{publication.authorName}}</h2>
+            <p>{{publication.postDate * 1000 | amTimeAgo}}</p>
+          </div>
+          <div class="item item-body">
+            <img class="full-image" src="{{publication.principalImage}}">
+            <button class = "button paw icon ion-ios-paw" ></button>
+            <p>
+              {{publication.description}}
+            </p>
+            <p>
+              <a href="#" class="subdued">{{publication.likesCount}} {{"home_likes" | translate}}</a>
+              <a href="#" class="subdued">{{publication.commentsCount}} {{"home_comments" | translate}}</a>
+            </p>
+          </div>
+        </div>
+      </ion-content>
+    </ion-slide-page>
+  </ion-slides>
+  <div class="tabs tabs-icon-top">
+    <a class="tab-item" ng-style = "{'color': section == 'Adopt' ? '#00007f' : 'grey'}">
+      <i ng-click="changeSection('Adopt')" class="icon ion-ios-paw"></i>
+      {{"home_adopt" | translate}}
+    </a>
+    <a class="tab-item"  ng-style = "{'color': section == 'Wanted' ? '#00007f' : 'grey'}" >
+      <i ng-click="changeSection('Wanted')" class="icon ion-android-sad"></i>
+      {{"home_wanted" | translate}}
+    </a>
+    <a class="tab-item" ng-style = "{'color': section == 'Lost' ? '#00007f' : 'grey'}">
+      <i ng-click="changeSection('Lost')" class="icon ion-ios-flag"></i>
+      {{"home_found" | translate}}
+    </a>
+  </div>
 </ion-view>

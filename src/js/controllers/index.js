@@ -18,10 +18,10 @@ angular.module('starter.controllers').controller('indexController', function($sc
     if (user) $state.go('home');
   });
 
-  $rootScope.go = function (path) {
-        $state.go(path);
-        console.log('Transition to ' + path);
-    };
+  $rootScope.go = function(path) {
+    $state.go(path);
+    console.log('Transition to ' + path);
+  };
 
   $scope.showLogOutMenu = function() {
 
