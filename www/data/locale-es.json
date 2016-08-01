@@ -1,23 +1,16 @@
 {
-    "adoption_title": "Adopción",
-    "adoption_adopt": "Adoptar",
-    "adoption_wanted": "Buscados",
-    "adoption_found": "Encontrados",
-    "adoption_comments": "Comentarios",
-    "adoption_likes": "Me gusta",
+    "home_title": "Adopción",
+    "home_adopt": "Adoptar",
+    "home_wanted": "Buscados",
+    "home_found": "Encontrados",
+    "home_comments": "Comentarios",
+    "home_likes": "Me gusta",
 
     "facebook_title": "Bienvenido",
     "facebook": "Facebook",
     "facebook_message": "Esta aplicación te ayudará a encontrar y adoptar una mascota para tu familia.",
 
     "general_maximum_dagger": "Daga Máxima!",
-
-    "home_title": "Inicio",
-    "home_adoption": "Adopción",
-    "home_cross": "Cruza",
-    "home_veterinary": "Veterinaria",
-    "home_pet_walk": "Paseo de mascotas",
-    "home_wanted": "Buscados",
 
     "publish_title": "Publicar",
     "publish_adopt": "Adopción",

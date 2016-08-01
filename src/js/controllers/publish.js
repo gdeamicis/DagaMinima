@@ -15,21 +15,21 @@ angular.module('starter.controllers').controller('publishController', function($
       buttons: [
         {
           text: $translate.instant('publish_adopt'),
-          type: 'button-full button-positive',
+          type: 'button-full button-dark',
           onTap: function(e) {
             $scope.formData.category = 'Adopt';
           }
         },
         {
           text: $translate.instant('publish_wanted'),
-          type: 'button-full button-positive',
+          type: 'button-full button-dark',
           onTap: function(e) {
             $scope.formData.category = 'Wanted';
           }
         },
         {
           text: $translate.instant('publish_found'),
-          type: 'button-full button-positive',
+          type: 'button-full button-dark',
           onTap: function(e) {
             $scope.formData.category = 'Found';
           }
@@ -41,21 +41,22 @@ angular.module('starter.controllers').controller('publishController', function($
   $scope.sendPopup = function() {
     $scope.data = {};
 
-    if($scope.formData.category){
+    if ($scope.formData.category) {
 
       var confirmPopup = $ionicPopup.confirm({
         title: $translate.instant('publish_publicatePopup'),
-        cssClass: 'popup-vertical-buttons',
+        cssClass: '',
         template: $translate.instant('publish_publicatePopupText') +
           ($scope.formData.category === 'Adopt' ? $translate.instant('publish_adopt') : $scope.formData.category === 'Wanted' ? $translate.instant('publish_wanted') : $translate.instant('publish_found')) +
           '?',
         cancelText: $translate.instant('publish_publicatePopupCancel'),
+        canelType: 'button',
         okText: $translate.instant('publish_publicatePopupOk'),
-        okType: 'button-balanced'
+        okType: 'button-dark'
       });
 
       confirmPopup.then(function(res) {
-        if(res){
+        if (res) {
 
           //DEFINE REQUEST
           var request = {
@@ -110,7 +111,7 @@ angular.module('starter.controllers').controller('publishController', function($
 
   }
 
-  $scope.fromGallery = function(){
+  $scope.fromGallery = function() {
     var options = {
       quality: 75,
       destinationType: Camera.DestinationType.DATA_URL,
@@ -132,30 +133,30 @@ angular.module('starter.controllers').controller('publishController', function($
 
 
 
-/*
-  $scope.fromGallery = function() {
-    var options = {
+  /*
+    $scope.fromGallery = function() {
+      var options = {
 
-      maximumImagesCount: 1,
-      width: 800,
-      height: 800,
-      quality: 80
-    };
+        maximumImagesCount: 1,
+        width: 800,
+        height: 800,
+        quality: 80
+      };
 
-    $cordovaImagePicker.getPictures(options)
-      .then(function(results) {
-        for (var i = 0; i < results.length; i++) {
-          console.log('Image URI: ' + results[i]);
-          $scope.images[i] = results[i];
-          $scope.imagesNotEmpty = true;
-        }
-      }, function(error) {
-        // error getting photos
-      });
-  }*/
+      $cordovaImagePicker.getPictures(options)
+        .then(function(results) {
+          for (var i = 0; i < results.length; i++) {
+            console.log('Image URI: ' + results[i]);
+            $scope.images[i] = results[i];
+            $scope.imagesNotEmpty = true;
+          }
+        }, function(error) {
+          // error getting photos
+        });
+    }*/
 
   var deregister = $ionicPlatform.registerBackButtonAction(function() {
-    if(!$scope.imgURI) $state.go('home');
+    if (!$scope.imgURI) $state.go('home');
     $scope.imgURI = null;
   }, 101);
   $scope.$on('$destroy', deregister);

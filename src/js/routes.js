@@ -32,15 +32,6 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
     }
   })
 
-  .state('sections', {
-    url: '/sections',
-    views: {
-      'menuContent': {
-        templateUrl: 'views/sections.html',
-      }
-    }
-  })
-
   .state('settings', {
     url: '/settings',
     views: {

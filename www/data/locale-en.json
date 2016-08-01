@@ -1,23 +1,16 @@
 {
-    "adoption_title": "Adoption",
-    "adoption_adopt": "Adopt",
-    "adoption_wanted": "Wanted",
-    "adoption_found": "Found",
-    "adoption_comments": "Comments",
-    "adoption_likes": "Likes",
+    "home_title": "Adoption",
+    "home_adopt": "Adopt",
+    "home_wanted": "Wanted",
+    "home_found": "Found",
+    "home_comments": "Comments",
+    "home_likes": "Likes",
 
     "facebook_title": "Welcome",
     "facebook": "Facebook",
     "facebook_message": "This app will help you to find and adopt a pet-member to your family",
 
     "general_maximum_dagger": "Maximum Dagger!",
-
-    "home_title": "Home",
-    "home_adoption": "Adoption",
-    "home_cross": "Cross",
-    "home_veterinary": "Veterinary",
-    "home_pet_walk": "Pet walk",
-    "home_wanted": "Wanted",
 
     "publish_title": "Publish",
     "publish_adopt": "Adopt",
@@ -28,7 +21,7 @@
     "publish_categoryChoosePopup":"Choose a Category",
     "publish_description":"Description",
     "publish_found":"Found",
-    "publish_gallery": "Galery",
+    "publish_gallery": "Gallery",
     "publish_lost":"Lost",
     "publish_publicatePopup":"Publicate",
     "publish_publicatePopupCancel":"Mmm... Not Yet",

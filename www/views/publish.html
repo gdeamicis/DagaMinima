@@ -4,20 +4,26 @@
     <i ng-show="imgURI" ng-click="sendPopup()" class="icon ion-android-send size-24 m5"></i>
   </ion-nav-buttons>
   <ion-content>
-    <div ng-show="!imgURI">
-      <button class="button button-block icon ion-camera button-positive" ng-click="fromCamera()"></button>
-      <button class="button button-block icon ion-images button-calm" ng-click="fromGallery()"></button>
+    <div ng-show="!imgURI" class="publish-button">
+      <button class="button icon ion-camera button-positive br100 db publish-button" ng-click="fromCamera()"></button>
+      <button class="button icon ion-images button-calm br100 db publish-button" ng-click="fromGallery()"></button>
     </div>
     <div ng-show="imgURI">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">{{'publish_description' | translate}}</span>
-        <textarea id='descriptionText' ng-model="formData.description" type="text" placeholder="{{'publish_description' | translate}}">
-        </textarea>
-      </label>
-      <button class="button button-block button-stable" ng-click="categoryPopup()">{{'publish_category' | translate}}</button>
-      <div class="row responsive-sm">
-        <div class="col">
-          <img class="image" ng-src="{{imgURI}}">
+      <div class="list card">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{'publish_category'| translate}}</span>
+          <input ng-click="categoryPopup()" ng-model="formData.category" type="text" placeholder="{{'publish_category' | translate}}">
+        </input>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{'publish_description' | translate}}</span>
+          <textarea ng-model="formData.description" type="text" placeholder="{{'publish_description' | translate}}">
+          </textarea>
+        </label>
+        <div class="row responsive-sm">
+          <div class="col">
+            <img class="image" ng-src="{{imgURI}}">
+          </div>
         </div>
       </div>
     </div>
