@@ -9,10 +9,19 @@ angular.module('starter.controllers').controller('publishController', function($
     $scope.data = {};
 
     var myPopup = $ionicPopup.show({
+      templateUrl: 'categoryPopup.html',
       title: $translate.instant('publish_categoryChoosePopup'),
       scope: $scope,
-      cssClass: 'popup-vertical-buttons',
+      //cssClass: 'popup-vertical-buttons',
       buttons: [
+        {
+          text: 'Yes',
+          type: 'button-dark',
+        },
+        {
+          text: 'No',
+          type: 'button-dark',
+        }/*,
         {
           text: $translate.instant('publish_adopt'),
           type: 'button-full button-dark',
@@ -33,7 +42,7 @@ angular.module('starter.controllers').controller('publishController', function($
           onTap: function(e) {
             $scope.formData.category = 'Found';
           }
-        },
+        },*/
       ]
     });
   }
