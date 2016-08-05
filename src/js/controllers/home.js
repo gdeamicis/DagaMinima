@@ -1,6 +1,10 @@
 'use strict';
 
+<<<<<<< HEAD
 angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, wishlistService, $cordovaSocialSharing) {
+=======
+angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, wishlistService) {
+>>>>>>> gdeamicis-fix/favoriteButton
   $scope.options = {
     loop: false,
     effect: 'flip',
@@ -62,6 +66,4 @@ angular.module('starter.controllers').controller('homeController', function($sco
   $scope.share = function(description,image) {
     $cordovaSocialSharing.share(description, $scope.section, null, "Compartido desde Aninder");
   }
-
-
 });
