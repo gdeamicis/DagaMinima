@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, wishlistService) {
+angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, wishlistService, $cordovaSocialSharing) {
   $scope.options = {
     loop: false,
     effect: 'flip',
@@ -52,6 +52,16 @@ angular.module('starter.controllers').controller('homeController', function($sco
 
   $scope.setFavorite = function(publication) {
     publication.favorite = !publication.favorite;
-    wishlistService.addFavoritePub(publication);
+    if(publication.favorite){
+      wishlistService.addFavoritePub(publication);
+    } else {
+      wishlistService.deleteFavoritePub(publication);
+    }
   }
+
+  $scope.share = function(description,image) {
+    $cordovaSocialSharing.share(description, $scope.section, null, "Compartido desde Aninder");
+  }
+
+
 });
