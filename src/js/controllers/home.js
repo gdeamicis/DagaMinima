@@ -1,10 +1,6 @@
 'use strict';
 
-<<<<<<< HEAD
 angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, wishlistService, $cordovaSocialSharing) {
-=======
-angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, wishlistService) {
->>>>>>> gdeamicis-fix/favoriteButton
   $scope.options = {
     loop: false,
     effect: 'flip',
