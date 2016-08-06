@@ -1,14 +1,20 @@
 <ion-content>
-  <div class="row">
-  <div class="col profile-picture"><img ng-src="{{user.picture}}"></img></div>
+<div class="row line-b">
+  <div class="col col-center"><img class="profile-picture" ng-src="{{user.picture}}"></img></div>
   <div class="col m10t"><span class="profile-name">{{user.name}}</span><br><span class="profile-email">{{user.email}}</span><br></div>
 </div>
 <div class="list">
-  <a menu-close href="#/home" class="item item-icon-left"><i class="icon ion-home"></i>{{"sidebar_home" | translate}}</a>
-  <a menu-close href="#/posts" class="item item-icon-left"><i class="icon ion-ios-photos"></i>{{"sidebar_posts" | translate}}</a>
-  <a menu-close href="#/wishlist" class="item item-icon-left"><i class="icon ion-ios-paw"></i>{{"sidebar_wish_list" | translate}}</a>
-  <a menu-close href="#/publish" class="item item-icon-left"><i class="icon ion-camera"></i>{{"sidebar_publish" | translate}}</a>
-  <a menu-close href="#/settings" class="item item-icon-left"><i class="icon ion-settings"></i>{{"sidebar_settings" | translate}}</a>
-  <a menu-close href="#/help" class="item item-icon-left"><i class="icon ion-help-buoy"></i>{{"sidebar_help" | translate}}</a>
+  <a menu-close href="#/home" class="item item-icon-left"><i class="icon ion-ios-home-outline"></i>{{"sidebar_home" | translate}}</a>
+  <a menu-close href="#/posts" class="item item-icon-left"><i class="icon ion-ios-photos-outline"></i>{{"sidebar_posts" | translate}}</a>
+  <a menu-close href="#/wishlist" class="item item-icon-left"><i class="icon ion-ios-star-outline"></i>{{"sidebar_wish_list" | translate}}</a>
+  <a menu-close href="#/publish" class="item item-icon-left"><i class="icon ion-ios-camera-outline"></i>{{"sidebar_publish" | translate}}</a>
+  <a menu-close href="#/settings" class="item item-icon-left"><i class="icon ion-ios-gear-outline"></i>{{"sidebar_settings" | translate}}</a>
+  <a menu-close href="#/help" class="item item-icon-left"><i class="icon ion-ios-help-outline"></i>{{"sidebar_help" | translate}}</a>
 </div>
+<div class="row line-t">
+  <ul class="list">
+    <li ng-click="showLogOutMenu()" class="item">
+      {{"sidebar_logout" | translate}}
+    </li>
+  </ul>
 </ion-content>

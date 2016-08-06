@@ -39,5 +39,10 @@
     "sidebar_wish_list": "Lista de deseos",
     "sidebar_publish": "Publicar",
     "sidebar_settings": "Configuración",
-    "sidebar_help": "Ayuda"
+    "sidebar_help": "Ayuda",
+    "sidebar_logout": "Cerrar sesión",
+
+    "alert_message": "Esta seguro que desea salir? Es una aplicación increible, le recomiendo que se quede",
+    "alert_ok": "Si",
+    "alert_cancel": "Me quedo"
 }

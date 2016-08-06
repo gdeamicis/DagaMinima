@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('indexController', function($scope, $rootScope, storageService, $ionicPopup, $state, platformService) {
+angular.module('starter.controllers').controller('indexController', function($scope, $rootScope, $ionicSideMenuDelegate, $ionicPopup, $state, storageService, platformService) {
 
   $scope.$on('$ionicView.enter', function() {
     if (platformService.isCordova) {
@@ -15,7 +15,7 @@ angular.module('starter.controllers').controller('indexController', function($sc
 
   $rootScope.$on('Local/FacebookLogin', function(event, user) {
     $scope.user = user;
-    if (user) $state.go('home');
+    $state.go('home');
   });
 
   $rootScope.go = function(path) {
@@ -39,7 +39,8 @@ angular.module('starter.controllers').controller('indexController', function($sc
       facebookConnectPlugin.logout(function() {
           console.log("Success logout");
           storageService.deleteLocalUser();
-          $rootScope.$emit('Local/FacebookLogin', null);
+          $ionicSideMenuDelegate.toggleLeft();
+          $scope.user = null;
           $state.go('facebook');
           logOutPopup.close();
         },
