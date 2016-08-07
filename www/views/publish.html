@@ -12,23 +12,23 @@
       <div class="list card">
         <div class="m20t" ng-show="err" ng-click="resetError()">
           <span class="has-error">
-            {{err}}
+            {{'publish_err' | translate}}
           </span>
         </div>
         <form name="publishForm">
           <label class="item item-input item-stacked-label">
-            <span class="input-label">{{'publish_category'| translate}} <small class="has-error" ng-show="publishForm.category.$invalid && !publishForm.category.$pristine">Is required</small></span>
+            <span class="input-label">{{'publish_category'| translate}} <small class="has-error" ng-show="publishForm.category.$invalid && !publishForm.category.$pristine">{{'publish_required' | translate}}</small></span>
             <input readonly ng-click="categoryPopup()" ng-model="formData.category" type="text" id="category" name="category" autocomplete="off" required></input>
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">{{'publish_description' | translate}}
-              <small class="has-error" ng-show="publishForm.description.$error.required && !publishForm.description.$pristine">Is required</small>
-              <small class="has-error" ng-show="publishForm.description.$error.maxlength && !publishForm.description.$pristine">To long!</small>
+              <small class="has-error" ng-show="publishForm.description.$error.required && !publishForm.description.$pristine">{{'publish_required' | translate}}</small>
+              <small class="has-error" ng-show="publishForm.description.$error.maxlength && !publishForm.description.$pristine">{{'publish_long' | translate}}</small>
             </span>
             <textarea ng-model="formData.description" type="text" name="description" autocomplete="off" ng-maxlength="100" required></textarea>
           </label>
           <label class="item item-input item-stacked-label">
-            <span class="input-label">{{'publish_image' | translate}}<small class="has-error" ng-show="publishForm.image.$invalid && !publishForm.image.$pristine">Is required</small></span>
+            <span class="input-label">{{'publish_image' | translate}}<small class="has-error" ng-show="publishForm.image.$invalid && !publishForm.image.$pristine">{{'publish_required' | translate}}</small></span>
             <div class="row responsive-sm">
               <div class="col">
                 <img type="image" name="image" id="image" ng-src="{{formData.imgURI}}" required>

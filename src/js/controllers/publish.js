@@ -56,7 +56,12 @@ angular.module('starter.controllers').controller('publishController', function($
       }
 
       publicationService.setPublication(request, function(err, success) {
-        if (err) return $scope.err = 'Please try again: ' + err;
+        if (err) {
+          console.log('Set pulication error: ', JSON.stringify(err));
+          $scope.err = err;
+          categoryPopup.close();
+          return;
+        }
         console.log('SUCCESS: ' + success);
 
         categoryPopup.close();

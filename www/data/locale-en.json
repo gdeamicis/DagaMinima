@@ -13,22 +13,12 @@
     "general_maximum_dagger": "Maximum Dagger!",
 
     "publish_title": "Publish",
-    "publish_adopt": "Adopt",
-    "publish_camera": "Camera",
     "publish_category":"Category",
-    "publish_categoryAlertPopup":"Category not selected!",
-    "publish_categoryAlertPopupText":"Please, select a category",
-    "publish_categoryChoosePopup":"Choose a Category",
     "publish_description":"Description",
     "publish_image":"Image to publish",
-    "publish_found":"Found",
-    "publish_gallery": "Gallery",
-    "publish_lost":"Lost",
-    "publish_publicatePopup":"Publicate",
-    "publish_publicatePopupCancel":"Mmm... Not Yet",
-    "publish_publicatePopupOk":"Yeah! Upload it!",
-    "publish_publicatePopupText":"Publicate this on ",
-    "publish_wanted":"Wanted",
+    "publish_required":"is required",
+    "publish_long":"too long!",
+    "publish_err":"Error uploading the file, please try again",
 
     "posts_title": "My Posts",
 
@@ -45,5 +35,16 @@
 
     "alert_message": "Are you sure you want to logout? This app is awesome so I recommend you to stay",
     "alert_ok": "Yes",
-    "alert_cancel": "I stay"
+    "alert_cancel": "I stay",
+
+    "categoryPopup_adopt": "Adopt",
+    "categoryPopup_wanted": "Wanted",
+    "categoryPopup_found": "Found",
+
+    "send_publication": "Create the publication",
+
+    "publish_status": "Published successfuly",
+
+    "cancel": "Cancel",
+    "ok": "OK"
 }
