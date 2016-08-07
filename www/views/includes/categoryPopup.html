@@ -1,0 +1,15 @@
+<div class="columns m20t">
+  <ion-list>
+    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Adopt'">Adopt</ion-radio>
+    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Wanted'">Wanted</ion-radio>
+    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Lost'">Lost</ion-radio>
+  </ion-list>
+  <div class="row">
+    <div class="col">
+      <button class="button button-full button-dark" ng-click="cancel()">Cancel</button>
+    </div>
+    <div class="col">
+      <button class="button button-full button-dark" ng-click="accept(category)">OK</button>
+    </div>
+  </div>
+</div>

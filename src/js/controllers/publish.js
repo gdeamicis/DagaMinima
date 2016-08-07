@@ -1,100 +1,86 @@
 'use strict';
 
-angular.module('starter.controllers').controller('publishController', function($scope, $cordovaImagePicker, $cordovaCamera, $ionicPlatform, $state, $ionicPopup, $translate, storageService) {
+angular.module('starter.controllers').controller('publishController', function($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $ionicPopup, $ionicModal, $translate, storageService, publicationService) {
 
-  $scope.images = [];
   $scope.formData = {};
+  $scope.formData.imgURI = null;
+  $scope.formData.category = null;
+  $scope.formData.description = null;
+  $scope.err = null;
+
+  $scope.resetError = function() {
+    $scope.err = null;
+  }
 
   $scope.categoryPopup = function() {
-    $scope.data = {};
 
-    var myPopup = $ionicPopup.show({
-      templateUrl: 'categoryPopup.html',
-      title: $translate.instant('publish_categoryChoosePopup'),
-      scope: $scope,
-      //cssClass: 'popup-vertical-buttons',
-      buttons: [
-        {
-          text: 'Yes',
-          type: 'button-dark',
-        },
-        {
-          text: 'No',
-          type: 'button-dark',
-        }/*,
-        {
-          text: $translate.instant('publish_adopt'),
-          type: 'button-full button-dark',
-          onTap: function(e) {
-            $scope.formData.category = 'Adopt';
-          }
-        },
-        {
-          text: $translate.instant('publish_wanted'),
-          type: 'button-full button-dark',
-          onTap: function(e) {
-            $scope.formData.category = 'Wanted';
-          }
-        },
-        {
-          text: $translate.instant('publish_found'),
-          type: 'button-full button-dark',
-          onTap: function(e) {
-            $scope.formData.category = 'Found';
-          }
-        },*/
-      ]
+    var categoryPopup = $ionicPopup.show({
+      templateUrl: './views/includes/categoryPopup.html',
+      scope: $scope
     });
+
+    $scope.cancel = function() {
+      categoryPopup.close();
+    };
+
+    $scope.accept = function(category) {
+      $scope.formData.category = category;
+      categoryPopup.close();
+    };
   }
 
   $scope.sendPopup = function() {
-    $scope.data = {};
 
-    if ($scope.formData.category) {
+    if (!$scope.formData.category || !$scope.formData.description || !$scope.formData.imgURI) return;
 
-      var confirmPopup = $ionicPopup.confirm({
-        title: $translate.instant('publish_publicatePopup'),
-        cssClass: '',
-        template: $translate.instant('publish_publicatePopupText') +
-          ($scope.formData.category === 'Adopt' ? $translate.instant('publish_adopt') : $scope.formData.category === 'Wanted' ? $translate.instant('publish_wanted') : $translate.instant('publish_found')) +
-          '?',
-        cancelText: $translate.instant('publish_publicatePopupCancel'),
-        canelType: 'button',
-        okText: $translate.instant('publish_publicatePopupOk'),
-        okType: 'button-dark'
+    var categoryPopup = $ionicPopup.show({
+      templateUrl: './views/includes/sendPopup.html',
+      scope: $scope
+    });
+
+    $scope.cancel = function() {
+      categoryPopup.close();
+    };
+
+    $scope.accept = function() {
+
+      var userID = storageService.getLocalUser().user;
+      var creationTime = moment().unix();
+
+      var request = {
+        userID: userID,
+        description: $scope.formData.description,
+        imageURI: $scope.formData.imgURI,
+        category: $scope.formData.category,
+        creationTime: creationTime
+      }
+
+      publicationService.setPublication(request, function(err, success) {
+        if (err) return $scope.err = 'Please try again: ' + err;
+        console.log('SUCCESS: ' + success);
+
+        categoryPopup.close();
+        $scope.openStatusModal();
       });
-
-      confirmPopup.then(function(res) {
-        if (res) {
-
-          //DEFINE REQUEST
-          var request = {
-            userID: storageService.getLocalUser(),
-            description: $scope.formData.description,
-            photo: 1,
-            category: $scope.formData.category,
-            timestamp: moment().unix()
-          }
-
-          console.log(request);
-
-          //UPLOAD
-
-          //ERASE DESCRIPTION TEXT
-          $scope.descriptionText = '';
-          //GO HOME
-          $state.go('home');
-        }
-      })
-    } else { //If category unselected
-
-      var alertCategoryPopup = $ionicPopup.alert({
-        title: $translate.instant('publish_categoryAlertPopup'),
-        template: $translate.instant('publish_categoryAlertPopupText')
-      })
     }
+  }
 
+  $scope.openStatusModal = function() {
 
+    $ionicModal.fromTemplateUrl('views/includes/status.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.statusModal = modal;
+      $scope.statusModal.show();
+    });
+
+    $scope.close = function() {
+      $scope.statusModal.hide();
+      $timeout(function() {
+        $state.go('home');
+      }, 10);
+    };
   }
 
   $scope.fromCamera = function() {
@@ -112,10 +98,10 @@ angular.module('starter.controllers').controller('publishController', function($
     };
 
     $cordovaCamera.getPicture(options).then(function(imageData) {
-      $scope.imgURI = "data:image/jpeg;base64," + imageData;
+      $scope.formData.imgURI = "data:image/jpeg;base64," + imageData;
 
     }, function(err) {
-      // error
+      console.log('From camera :' + err);
     });
 
   }
@@ -134,39 +120,17 @@ angular.module('starter.controllers').controller('publishController', function($
     };
 
     $cordovaCamera.getPicture(options).then(function(imageData) {
-      $scope.imgURI = "data:image/jpeg;base64," + imageData;
+      $scope.formData.imgURI = "data:image/jpeg;base64," + imageData;
     }, function(err) {
-      // error
+      console.log('From gallery :' + err);
     });
   }
 
-
-
-  /*
-    $scope.fromGallery = function() {
-      var options = {
-
-        maximumImagesCount: 1,
-        width: 800,
-        height: 800,
-        quality: 80
-      };
-
-      $cordovaImagePicker.getPictures(options)
-        .then(function(results) {
-          for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);
-            $scope.images[i] = results[i];
-            $scope.imagesNotEmpty = true;
-          }
-        }, function(error) {
-          // error getting photos
-        });
-    }*/
-
   var deregister = $ionicPlatform.registerBackButtonAction(function() {
-    if (!$scope.imgURI) $state.go('home');
-    $scope.imgURI = null;
+    if (!$scope.formData.imgURI) $state.go('home');
+    $scope.formData.imgURI = null;
   }, 101);
+
   $scope.$on('$destroy', deregister);
+
 });

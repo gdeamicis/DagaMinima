@@ -1,0 +1,19 @@
+.popup-head {
+  display: none
+}
+
+ input[readonly]:not(.cloned-text-input){
+  background-color: white;
+}
+
+.input-label {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: #34495E;
+}
+
+.item-input input[type="image"]{
+  height: auto;
+  width: 100%;
+}

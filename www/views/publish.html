@@ -1,46 +1,42 @@
 <ion-view ng-controller="publishController" class="publish" cache-view="false">
   <ion-nav-title>{{'publish_title' | translate}}</ion-nav-title>
   <ion-nav-buttons side="right">
-    <i ng-show="imgURI" ng-click="sendPopup()" class="icon ion-android-send size-24 m5"></i>
+    <i ng-show="formData.imgURI" ng-click="sendPopup()" ng-class="{'text-gray': !formData.description || !formData.category || !formData.imgURI}" class="icon ion-ios-paperplane-outline size-36 m10r"></i>
   </ion-nav-buttons>
   <ion-content>
-    <div ng-show="!imgURI" class="publish-button">
+    <div ng-show="!formData.imgURI" class="publish-button">
       <button class="button icon ion-camera button-positive br100 db publish-button" ng-click="fromCamera()"></button>
       <button class="button icon ion-images button-calm br100 db publish-button" ng-click="fromGallery()"></button>
     </div>
-    <div ng-show="imgURI">
+    <div ng-show="formData.imgURI">
       <div class="list card">
-        <label class="item item-input item-floating-label">
-          <span class="input-label">{{'publish_category'| translate}}</span>
-          <input readonly ng-click="categoryPopup()" ng-model="formData.category" type="text" placeholder="{{'publish_category' | translate}}">
-        </input>
-        </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">{{'publish_description' | translate}}</span>
-          <textarea ng-model="formData.description" type="text" placeholder="{{'publish_description' | translate}}">
-          </textarea>
-        </label>
-        <div class="row responsive-sm">
-          <div class="col">
-            <img class="image" ng-src="{{imgURI}}">
-          </div>
+        <div class="m20t" ng-show="err" ng-click="resetError()">
+          <span class="has-error">
+            {{err}}
+          </span>
         </div>
+        <form name="publishForm">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">{{'publish_category'| translate}} <small class="has-error" ng-show="publishForm.category.$invalid && !publishForm.category.$pristine">Is required</small></span>
+            <input readonly ng-click="categoryPopup()" ng-model="formData.category" type="text" id="category" name="category" autocomplete="off" required></input>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">{{'publish_description' | translate}}
+              <small class="has-error" ng-show="publishForm.description.$error.required && !publishForm.description.$pristine">Is required</small>
+              <small class="has-error" ng-show="publishForm.description.$error.maxlength && !publishForm.description.$pristine">To long!</small>
+            </span>
+            <textarea ng-model="formData.description" type="text" name="description" autocomplete="off" ng-maxlength="100" required></textarea>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">{{'publish_image' | translate}}<small class="has-error" ng-show="publishForm.image.$invalid && !publishForm.image.$pristine">Is required</small></span>
+            <div class="row responsive-sm">
+              <div class="col">
+                <img type="image" name="image" id="image" ng-src="{{formData.imgURI}}" required>
+              </div>
+            </div>
+          </label>
+        </form>
       </div>
     </div>
   </ion-content>
-  <script id="categoryPopup.html" type="text/ng-template">
-    <ion-radio class="wrapping-list" icon="icon ion-ios-paw" ng-model="formData.category" ng-value="'Adopt'">Adopt</ion-radio>
-    <ion-radio class="wrapping-list" icon="icon ion-ios-paw" ng-model="formData.category" ng-value="'Wanted'">Wanted</ion-radio>
-    <ion-radio class="wrapping-list" icon="icon ion-ios-paw" ng-model="formData.category" ng-value="'Lost'">Lost</ion-radio>
-  </script>
 </ion-view>
-
-<!--
-<div class="row publish" ng-if="imagesNotEmpty">
-  <div class = "col col-50" ng-repeat="image in images">
-    <div class="img-container"><img ng-src="{{image}}" style="width:100%; height:auto;"></img></div>
-    <textarea name="description" ng-model="incident.comment">
-    </textarea>
-  </div>
-</div>
--->
