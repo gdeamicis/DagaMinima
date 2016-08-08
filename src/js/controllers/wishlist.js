@@ -1,6 +1,5 @@
-
 'use strict';
 
-angular.module('starter.controllers').controller('wishlistController', function($scope, $rootScope, $state, wishlistService) {
-  $scope.favoritePubs = wishlistService.getFavoritePubs();
+angular.module('starter.controllers').controller('wishlistController', function($scope, $rootScope, $state, storageService) {
+  $scope.favoritePubs = storageService.getFavoritePubs();
 });
