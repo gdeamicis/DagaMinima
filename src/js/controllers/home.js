@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService) {
+angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, storageService, $cordovaSocialSharing, lodash) {
   $scope.options = {
     loop: false,
     effect: 'flip',
@@ -51,8 +51,20 @@ angular.module('starter.controllers').controller('homeController', function($sco
   }
 
   $scope.setFavorite = function(publication) {
-    publication.favorite = !publication.favorite;
+    if(!$scope.isFavorite(publication)){
+      storageService.setFavoritePub(publication);
+      $scope.isFavorite1 = true;
+    } else {
+      storageService.deleteFavoritePub(publication);
+      $scope.isFavorite1 = false;
+    }
+  }
 
-    //En wishlist.js mostrar todos las publicaciones con favorito === true ?
+  $scope.isFavorite = function(publication) {
+    return (lodash.findIndex(storageService.getFavoritePubs(), function(p){return p.$$hashKey == publication.$$hashKey}) >= 0);
+  }
+
+  $scope.share = function(description,image) {
+    $cordovaSocialSharing.share(description, $scope.section, null, "Compartido desde Aninder");
   }
 });

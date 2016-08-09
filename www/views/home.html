@@ -23,14 +23,14 @@
           </div>
           <div class="item item-body">
             <img class="full-image" src="{{publication.principalImage}}">
-            <button class="button button-icon paw icon ion-ios-paw" ng-click="setFavorite(publication)" ng-style = "{'color': publication.favorite ? 'green' : 'grey'}"></button>
             <p>
               {{publication.description}}
             </p>
-            <p>
-              <a href="#" class="subdued">{{publication.likesCount}} {{"home_likes" | translate}}</a>
-              <a href="#" class="subdued">{{publication.commentsCount}} {{"home_comments" | translate}}</a>
-            </p>
+          </div>
+          <div class = "button-bar">
+            <button class = "button button-icon icon ion-android-star" ng-click="setFavorite(publication)" ng-class="{'color-green':isFavorite1}"></button>
+            <button class = "button button-icon icon ion-android-share-alt" ng-click="share(publication.description,publication.principalImage)"></button>
+            <button class = "button button-icon icon ion-more"></button>
           </div>
         </div>
       </ion-content>
