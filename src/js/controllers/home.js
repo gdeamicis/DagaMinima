@@ -53,10 +53,8 @@ angular.module('starter.controllers').controller('homeController', function($sco
   $scope.setFavorite = function(publication) {
     if(!$scope.isFavorite(publication)){
       storageService.setFavoritePub(publication);
-      $scope.isFavorite1 = true;
     } else {
       storageService.deleteFavoritePub(publication);
-      $scope.isFavorite1 = false;
     }
   }
 
