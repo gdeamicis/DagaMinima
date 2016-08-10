@@ -39,5 +39,10 @@
     "sidebar_wish_list": "Wish Lists",
     "sidebar_publish": "Publish",
     "sidebar_settings": "Settings",
-    "sidebar_help": "Help"
+    "sidebar_help": "Help",
+    "sidebar_logout": "Log out",
+
+    "alert_message": "Are you sure you want to logout? This app is awesome so I recommend you to stay",
+    "alert_ok": "Yes",
+    "alert_cancel": "I stay"
 }
