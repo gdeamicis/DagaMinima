@@ -1,14 +1,14 @@
-<ion-view ng-controller="homeController">
+<ion-view ng-controller="sectionsController" cache-view="false">
   <ion-nav-title>
     <div ng-switch on="section">
       <div ng-switch-when="Adopt">
-        {{'home_adopt' | translate}}
+        {{'sections_adopt' | translate}}
       </div>
       <div ng-switch-when="Wanted">
-        {{'home_wanted' | translate}}
+        {{'sections_wanted' | translate}}
       </div>
       <div ng-switch-when="Lost">
-        {{'home_found' | translate}}
+        {{'sections_found' | translate}}
       </div>
     </div>
   </ion-nav-title>
@@ -36,15 +36,4 @@
       </ion-content>
     </ion-slide-page>
   </ion-slides>
-  <div class="tabs">
-    <a class="tab-item" ng-click="changeSection('Adopt')" ng-style="{'color': section == 'Adopt' ? '#00007f' : 'grey'}">
-      {{"home_adopt" | translate}}
-    </a>
-    <a class="tab-item"  ng-click="changeSection('Wanted')"   ng-style="{'color': section == 'Wanted' ? '#00007f' : 'grey'}" >
-      {{"home_wanted" | translate}}
-    </a>
-    <a class="tab-item" ng-click="changeSection('Lost')" ng-style="{'color': section == 'Lost' ? '#00007f' : 'grey'}">
-      {{"home_found" | translate}}
-    </a>
-  </div>
 </ion-view>

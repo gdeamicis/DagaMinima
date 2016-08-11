@@ -2,6 +2,8 @@
 
 angular.module('starter.controllers').controller('sidebarController', function($scope, $state, $ionicPopup, storageService) {
 
+  $scope.section = 'Adopt';
+
   $scope.showLogOutMenu = function() {
 
     var logOutPopup = $ionicPopup.show({
@@ -28,6 +30,10 @@ angular.module('starter.controllers').controller('sidebarController', function($
           logOutPopup.close();
         });
     }
+  }
+
+  $scope.changeSection = function(section) {
+    $scope.section = section;
   }
 
 });

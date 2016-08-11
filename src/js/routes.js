@@ -14,7 +14,7 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
     }
   })
 
-    .state('publish', {
+  .state('publish', {
     url: '/publish',
     views: {
       'menuContent': {
@@ -50,17 +50,17 @@ angular.module('starter').config(function($stateProvider, $urlRouterProvider, $i
     }
   })
 
-  .state('home', {
-    url: '/home',
+  .state('sections', {
+    url: '/sections/{section}',
     views: {
       'menuContent': {
-        templateUrl: 'views/home.html'
+        templateUrl: 'views/sections.html'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise(function($injector, $location) {
     var $state = $injector.get("$state");
-    $state.go("home");
+    $state.go("sections");
   });
 });

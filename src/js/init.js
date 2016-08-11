@@ -17,8 +17,8 @@ angular.module('starter').run(function($rootScope, $state, $log, $ionicPlatform,
     $ionicPlatform.on('backbutton', function(event) {
       var loc = window.location;
       var fromFacebook = loc.toString().match(/facebook/g) ? true : false;
-      var fromHome = loc.toString().match(/home/g) ? true : false;
-      if (fromFacebook == true || fromHome == true)
+      var fromSections = loc.toString().match(/sections/g) ? true : false;
+      if (fromFacebook == true || fromSections == true)
         navigator.app.exitApp();
     });
   });
@@ -36,7 +36,7 @@ angular.module('starter').run(function($rootScope, $state, $log, $ionicPlatform,
       }
     } else {
       console.log("There is not a cordova device")
-      if (toState.name == 'home') {
+      if (toState.name == 'sections') {
         return;
       }
     }
