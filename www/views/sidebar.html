@@ -1,15 +1,23 @@
-<ion-content>
+<ion-content ng-controller="sidebarController">
 <div class="row line-b">
   <div class="col col-center"><img class="profile-picture" ng-src="{{user.picture}}"></img></div>
   <div class="col m10t"><span class="profile-name">{{user.name}}</span><br><span class="profile-email">{{user.email}}</span><br></div>
 </div>
 <div class="list">
-  <a menu-close href="#/home" class="item item-icon-left"><i class="icon ion-ios-home-outline"></i>{{"sidebar_home" | translate}}</a>
-  <a menu-close href="#/posts" class="item item-icon-left"><i class="icon ion-ios-photos-outline"></i>{{"sidebar_posts" | translate}}</a>
-  <a menu-close href="#/wishlist" class="item item-icon-left"><i class="icon ion-ios-star-outline"></i>{{"sidebar_wish_list" | translate}}</a>
-  <a menu-close href="#/publish" class="item item-icon-left"><i class="icon ion-ios-camera-outline"></i>{{"sidebar_publish" | translate}}</a>
-  <a menu-close href="#/settings" class="item item-icon-left"><i class="icon ion-ios-gear-outline"></i>{{"sidebar_settings" | translate}}</a>
-  <a menu-close href="#/help" class="item item-icon-left"><i class="icon ion-ios-help-outline"></i>{{"sidebar_help" | translate}}</a>
+  <div class="item item-divider">
+   {{"sections" | translate}}
+  </div>
+  <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Adopt')" class="item l5h" ng-style="{'color': section == 'Adopt' ? '#00007f' : '#000', 'font-size': section == 'Adopt' ? '16px' : '14px'}">{{"sections_adopt" | translate}}</a>
+  <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Wanted')"  class="item l5h" ng-style="{'color': section == 'Wanted' ? '#00007f' : '#000', 'font-size': section == 'Wanted' ? '16px' : '14px'}">{{"sections_wanted" | translate}}</a>
+  <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Lost')" class="item l5h" ng-style="{'color': section == 'Lost' ? '#00007f' : '#000', 'font-size': section == 'Lost' ? '16px' : '14px'}">{{"sections_found" | translate}}</a>
+  <div class="item item-divider">
+   {{"options" | translate}}
+  </div>
+  <a menu-close ui-sref="posts" class="item item-icon-left l5h"><i class="icon ion-ios-photos-outline"></i>{{"sidebar_posts" | translate}}</a>
+  <a menu-close ui-sref="wishlist" class="item item-icon-left l5h"><i class="icon ion-ios-star-outline"></i>{{"sidebar_wish_list" | translate}}</a>
+  <a menu-close ui-sref="publish" class="item item-icon-left l5h"><i class="icon ion-ios-camera-outline"></i>{{"sidebar_publish" | translate}}</a>
+  <a menu-close ui-sref="settings" class="item item-icon-left l5h"><i class="icon ion-ios-gear-outline"></i>{{"sidebar_settings" | translate}}</a>
+  <a menu-close hrui-sref="help" class="item item-icon-left l5h"><i class="icon ion-ios-help-outline"></i>{{"sidebar_help" | translate}}</a>
 </div>
 <div class="row line-t">
   <ul class="list">

@@ -1,10 +1,13 @@
 {
-    "home_title": "Adopción",
-    "home_adopt": "Adoptar",
-    "home_wanted": "Buscados",
-    "home_found": "Encontrados",
-    "home_comments": "Comentarios",
-    "home_likes": "Me gusta",
+    "sections": "Secciones",
+    "sections_title": "Adopción",
+    "sections_adopt": "Adoptar",
+    "sections_wanted": "Buscados",
+    "sections_found": "Encontrados",
+    "sections_comments": "Comentarios",
+    "sections_likes": "Me gusta",
+
+    "options" : "Opciones",
 
     "facebook_title": "Bienvenido",
     "facebook": "Facebook",
@@ -25,7 +28,6 @@
     "settings_title": "Configuración",
     "settings_select_language": "Seleccione el idioma",
 
-    "sidebar_home": "Inicio",
     "sidebar_posts": "Mis publicaciones",
     "sidebar_wish_list": "Lista de deseos",
     "sidebar_publish": "Publicar",

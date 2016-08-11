@@ -17,3 +17,15 @@
   height: auto;
   width: 100%;
 }
+
+.button-icon.icon:before {
+  font-size: 20px;
+}
+
+.item-icon-left .icon, .item-icon-right .icon {
+  font-size: 24px;
+}
+
+.card {
+  box-shadow: 0.5px 1px 1px rgba(0, 0, 0, 0.3)
+}

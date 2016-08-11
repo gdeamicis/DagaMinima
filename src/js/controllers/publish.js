@@ -83,7 +83,7 @@ angular.module('starter.controllers').controller('publishController', function($
     $scope.close = function() {
       $scope.statusModal.hide();
       $timeout(function() {
-        $state.go('home');
+        $state.go('sections');
       }, 10);
     };
   }
@@ -132,7 +132,7 @@ angular.module('starter.controllers').controller('publishController', function($
   }
 
   var deregister = $ionicPlatform.registerBackButtonAction(function() {
-    if (!$scope.formData.imgURI) $state.go('home');
+    if (!$scope.formData.imgURI) $state.go('sections');
     $scope.formData.imgURI = null;
   }, 101);
 

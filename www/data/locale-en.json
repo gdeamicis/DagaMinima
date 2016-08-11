@@ -1,10 +1,13 @@
 {
-    "home_title": "Adoption",
-    "home_adopt": "Adopt",
-    "home_wanted": "Wanted",
-    "home_found": "Found",
-    "home_comments": "Comments",
-    "home_likes": "Likes",
+    "sections": "Sections",
+    "sections_title": "Adoption",
+    "sections_adopt": "Adopt",
+    "sections_wanted": "Wanted",
+    "sections_found": "Found",
+    "sections_comments": "Comments",
+    "sections_likes": "Likes",
+
+    "options": "Options",
 
     "facebook_title": "Welcome",
     "facebook": "Facebook",
@@ -25,7 +28,6 @@
     "settings_title": "Settings",
     "settings_select_language": "Select language",
 
-    "sidebar_home": "Home",
     "sidebar_posts": "My Posts",
     "sidebar_wish_list": "Wish Lists",
     "sidebar_publish": "Publish",

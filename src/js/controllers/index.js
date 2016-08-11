@@ -15,7 +15,7 @@ angular.module('starter.controllers').controller('indexController', function($sc
 
   $rootScope.$on('Local/FacebookLogin', function(event, user) {
     $scope.user = user;
-    $state.go('home');
+    $state.go('sections');
   });
 
   $rootScope.go = function(path) {

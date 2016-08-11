@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('starter.controllers').controller('homeController', function($scope, $timeout, sectionsService, storageService, $cordovaSocialSharing, lodash) {
+angular.module('starter.controllers').controller('sectionsController', function($scope, $timeout, $state, sectionsService, storageService, $cordovaSocialSharing, lodash) {
+
   $scope.options = {
     loop: false,
     effect: 'flip',
@@ -30,25 +31,9 @@ angular.module('starter.controllers').controller('homeController', function($sco
   });
 
   //DEFAULT -- This should change depending on how someone gets to the section view
-  $scope.section = 'Adopt';
-  $scope.publications = sectionsService.getSectionPubs('Adopt');
+  $scope.section = $state.params.section || 'Adopt';
+  $scope.publications = sectionsService.getSectionPubs($scope.section);
 
-  $scope.changeSection = function(section) {
-    switch (section) {
-      case 'Adopt':
-        $scope.publications = sectionsService.getSectionPubs('Adopt');
-        $scope.section = 'Adopt';
-        break;
-      case 'Wanted':
-        $scope.publications = sectionsService.getSectionPubs('Wanted');
-        $scope.section = 'Wanted';
-        break;
-      case 'Lost':
-        $scope.publications = sectionsService.getSectionPubs('Lost');
-        $scope.section = 'Lost';
-        break;
-    }
-  }
 
   $scope.setFavorite = function(publication) {
     if (!$scope.isFavorite(publication)) {
