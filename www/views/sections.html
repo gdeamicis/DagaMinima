@@ -15,24 +15,27 @@
   <ion-slides class="slides has-header has-footer" options="options" slider="data.slider">
     <ion-slide-page ng-repeat="publication in publications">
       <ion-content>
-        <div class="list card">
-          <div class="item item-avatar m0b m0t">
-            <img ng-src="{{publication.authorAvatar}}">
-            <h2>{{publication.authorName}}</h2>
-            <p>{{publication.postDate * 1000 | amTimeAgo}}</p>
+        <ion-scroll>
+          <div class="list card">
+            <div class="item item-avatar m0b m0t">
+              <img ng-src="{{publication.authorAvatar}}">
+              <h2>{{publication.authorName}}</h2>
+              <p>{{publication.postDate * 1000 | amTimeAgo}}</p>
+            </div>
+            <div class="item item-body m0b m0t p0">
+              <img class="full-image" src="{{publication.principalImage}}">
+              <p class="m10l">
+                {{publication.description}}
+              </p>
+            </div>
+            <div class="button-bar">
+              <button ng-show="!isFavorite(publication)" class="button button-icon icon ion-ios-star-outline" ng-click="setFavorite(publication)"></button>
+              <button ng-show="isFavorite(publication)" class="button button-icon icon balanced ion-ios-star" ng-click="setFavorite(publication)"></button>
+              <button class="button button-icon icon ion-ios-upload-outline" ng-click="share(publication.description,publication.principalImage)"></button>
+              <button class="button button-icon icon ion-ios-more-outline"></button>
+            </div>
           </div>
-          <div class="item item-body m0b m0t p0">
-            <img class="full-image" src="{{publication.principalImage}}">
-            <p class="m10l">
-              {{publication.description}}
-            </p>
-          </div>
-          <div class="button-bar">
-            <button class="button button-icon icon ion-ios-star-outline" ng-click="setFavorite(publication)" ng-style="{'color':isFavorite(publication) ? 'green' : 'black'}"></button>
-            <button class="button button-icon icon ion-ios-upload-outline" ng-click="share(publication.description,publication.principalImage)"></button>
-            <button class="button button-icon icon ion-ios-more-outline"></button>
-          </div>
-        </div>
+        </ion-scroll>
       </ion-content>
     </ion-slide-page>
   </ion-slides>
