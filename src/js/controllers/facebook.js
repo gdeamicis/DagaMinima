@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('facebookLoginController', function($scope, $rootScope, $state, $log, storageService) {
+angular.module('starter.controllers').controller('facebookLoginController', function($scope, $rootScope, $state, $log, storageService, facebookService) {
   // This is the success callback from the login method
   var fbLoginSuccess = function(success) {
     if (!success.authResponse) {
@@ -52,7 +52,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
   };
 
   var checkRemoteCredentials = function(userID, name, cb) {
-    storageService.getUser(userID, function(err, data) {
+    facebookService.getUser(userID, function(err, data) {
       if (err) {
         console.log("could not get data from server: " + JSON.stringify(err));
       }
@@ -63,7 +63,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
       } else {
         console.log("Success get request from server: " + JSON.stringify(data));
 
-        storageService.setUser({
+        facebookService.setUser({
           userID: userID,
           name: name
         }, function(err, data) {

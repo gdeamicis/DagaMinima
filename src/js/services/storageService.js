@@ -4,41 +4,6 @@ angular.module('starter.services').factory('storageService', function($http, $lo
 
   var root = {};
 
-  var favoritePubs = [];
-
-  root.setUser = function(user, cb) {
-    var req = {
-      method: 'POST',
-      url: 'http://192.168.1.109:3000/login',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: user
-    };
-
-    $http(req).then(function(data) {
-      return cb(null, data.data);
-    }, function(err) {
-      return cb(err);
-    });
-  };
-
-  root.getUser = function(userID, cb) {
-    var req = {
-      method: 'GET',
-      url: 'http://192.168.1.109:3000/login/' + userID,
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    };
-    $http(req).then(function(data) {
-      return cb(null, data.data);
-    }, function(err) {
-      return cb(err);
-    });
-  };
-
   root.setLocalUser = function(user) {
     window.localStorage.setItem('user', JSON.stringify(user));
   };
@@ -63,7 +28,9 @@ angular.module('starter.services').factory('storageService', function($http, $lo
 
   root.deleteFavoritePub = function(publication) {
     var newFavoritePubs = root.getFavoritePubs();
-    newFavoritePubs.splice(lodash.findIndex(newFavoritePubs, function(p){return p.$$hashKey == publication.$$hashKey}),1);
+    newFavoritePubs.splice(lodash.findIndex(newFavoritePubs, function(p) {
+      return p.$$hashKey == publication.$$hashKey
+    }), 1);
     window.localStorage.setItem('favoritePubs', JSON.stringify(newFavoritePubs));
   };
 
