@@ -51,7 +51,7 @@ angular.module('starter.controllers').controller('homeController', function($sco
   }
 
   $scope.setFavorite = function(publication) {
-    if(!$scope.isFavorite(publication)){
+    if (!$scope.isFavorite(publication)) {
       storageService.setFavoritePub(publication);
     } else {
       storageService.deleteFavoritePub(publication);
@@ -59,10 +59,12 @@ angular.module('starter.controllers').controller('homeController', function($sco
   }
 
   $scope.isFavorite = function(publication) {
-    return (lodash.findIndex(storageService.getFavoritePubs(), function(p){return p.$$hashKey == publication.$$hashKey}) >= 0);
+    return (lodash.findIndex(storageService.getFavoritePubs(), function(p) {
+      return p.$$hashKey == publication.$$hashKey
+    }) >= 0);
   }
 
-  $scope.share = function(description,image) {
+  $scope.share = function(description, image) {
     $cordovaSocialSharing.share(description, $scope.section, null, "Compartido desde Aninder");
   }
 });
