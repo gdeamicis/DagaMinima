@@ -29,7 +29,8 @@
               </p>
             </div>
             <div class="button-bar">
-              <button class="button button-icon icon ion-ios-star-outline" ng-click="setFavorite(publication)" ng-style="{'color':isFavorite(publication) ? 'green' : 'black'}"></button>
+              <button ng-show="!isFavorite(publication)" class="button button-icon icon ion-ios-star-outline" ng-click="setFavorite(publication)"></button>
+              <button ng-show="isFavorite(publication)" class="button button-icon icon balanced ion-ios-star" ng-click="setFavorite(publication)"></button>
               <button class="button button-icon icon ion-ios-upload-outline" ng-click="share(publication.description,publication.principalImage)"></button>
               <button class="button button-icon icon ion-ios-more-outline"></button>
             </div>
