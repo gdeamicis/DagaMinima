@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('sectionsController', function($scope, $timeout, $state, sectionsService, storageService, $cordovaSocialSharing, lodash) {
+angular.module('starter.controllers').controller('sectionsController', function($scope, $timeout, $state, sectionsService, storageService, $cordovaSocialSharing, lodash, $ionicPopup) {
 
   $scope.options = {
     loop: false,
@@ -50,5 +50,21 @@ angular.module('starter.controllers').controller('sectionsController', function(
 
   $scope.share = function(description, image) {
     $cordovaSocialSharing.share(description, $scope.section, null, "Compartido desde Aninder");
+  }
+
+  $scope.sectionsMorePopup = function() {
+
+    var sectionsMorePopup = $ionicPopup.show({
+      templateUrl: './views/includes/sectionsMorePopup.html',
+      scope: $scope
+    });
+
+    $scope.report = function() {
+      sectionsMorePopup.close();
+    };
+
+    $scope.savePhoto = function() {
+      sectionsMorePopup.close();
+    };
   }
 });
