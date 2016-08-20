@@ -30,7 +30,6 @@ angular.module('starter.controllers').controller('sectionsController', function(
     $scope.previousIndex = data.previousIndex;
   });
 
-  //DEFAULT -- This should change depending on how someone gets to the section view
   $scope.section = $state.params.section || 'Adopt';
   $scope.publications = sectionsService.getSectionPubs($scope.section);
 
