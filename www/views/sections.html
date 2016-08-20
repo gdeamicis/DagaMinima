@@ -30,8 +30,8 @@
             </div>
             <div class="button-bar">
               <button ng-class="{'ion-ios-star-outline unselected': !isFavorite(publication), 'ion-ios-star selected': isFavorite(publication)}" class="button button-icon icon" ng-click="setFavorite(publication)"></button>
-              <button class="button button-icon icon ion-ios-upload-outline" ng-click="share(publication.description,publication.imageURI)"></button>
-              <button class="button button-icon icon ion-ios-more-outline"></button>
+              <button class="button button-icon icon ion-ios-upload-outline" ng-click="share(publication.description,publication.principalImage)"></button>
+              <button class="button button-icon icon ion-ios-more-outline" ng-click="sectionsMorePopup()"></button>
             </div>
           </div>
         </ion-scroll>
