@@ -18,19 +18,19 @@
         <ion-scroll>
           <div class="list card">
             <div class="item item-avatar m0b m0t">
-              <img ng-src="{{publication.authorAvatar}}">
-              <h2>{{publication.authorName}}</h2>
-              <p>{{publication.postDate * 1000 | amTimeAgo}}</p>
+              <img ng-src="{{publication.picture}}">
+              <h2>{{publication.name}}</h2>
+              <p>{{publication.creationTime * 1000 | amTimeAgo}}</p>
             </div>
             <div class="item item-body m0b m0t p0">
-              <img class="full-image" src="{{publication.principalImage}}">
+              <img class="full-image" ng-src="{{publication.imageURI}}">
               <p class="m10l">
                 {{publication.description}}
               </p>
             </div>
             <div class="button-bar">
               <button ng-class="{'ion-ios-star-outline unselected': !isFavorite(publication), 'ion-ios-star selected': isFavorite(publication)}" class="button button-icon icon" ng-click="setFavorite(publication)"></button>
-              <button class="button button-icon icon ion-ios-upload-outline" ng-click="share(publication.description,publication.principalImage)"></button>
+              <button class="button button-icon icon ion-ios-upload-outline" ng-click="share(publication.description,publication.imageURI)"></button>
               <button class="button button-icon icon ion-ios-more-outline"></button>
             </div>
           </div>

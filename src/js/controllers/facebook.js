@@ -27,7 +27,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
 
       storageService.setLocalUser(user);
 
-      checkRemoteCredentials(user.userID, user.name, function(val) {
+      checkRemoteCredentials(user.userID, user.name, user.facebookToken, function(val) {
         if (val) $rootScope.$emit('Local/FacebookLogin', user);
       });
     });
@@ -51,7 +51,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
       });
   };
 
-  var checkRemoteCredentials = function(userID, name, cb) {
+  var checkRemoteCredentials = function(userID, name, facebookToken, cb) {
     facebookService.getUser(userID, function(err, data) {
       if (err) {
         console.log("could not get data from server: " + JSON.stringify(err));
@@ -65,7 +65,8 @@ angular.module('starter.controllers').controller('facebookLoginController', func
 
         facebookService.setUser({
           userID: userID,
-          name: name
+          name: name,
+          picture: "http://graph.facebook.com/" + facebookToken.userID + "/picture?type=large"
         }, function(err, data) {
           if (err) {
             console.log("could not save data on server: " + JSON.stringify(err));
@@ -107,7 +108,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
 
             storageService.setLocalUser(user);
 
-            checkRemoteCredentials(user.userID, user.name, function(val) {
+            checkRemoteCredentials(user.userID, user.name, user.facebookToken, function(val) {
               if (val) $rootScope.$emit('Local/FacebookLogin', user);
             });
           });
