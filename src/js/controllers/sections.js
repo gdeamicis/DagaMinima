@@ -67,4 +67,22 @@ angular.module('starter.controllers').controller('sectionsController', function(
       sectionsMorePopup.close();
     };
   }
+
+  $scope.profilePopup = function(publication) {
+
+    $scope.publication = publication;
+
+    var profilePopup = $ionicPopup.show({
+      templateUrl: './views/includes/sectionsProfilePopup.html',
+      scope: $scope
+    });
+
+    $scope.cancel = function() {
+      profilePopup.close();
+    };
+
+    $scope.openProfile = function(id) {
+      //Change view to selected profile view
+    }
+  }
 });

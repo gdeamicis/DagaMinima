@@ -18,7 +18,7 @@
         <ion-scroll>
           <div class="list card">
             <div class="item item-avatar m0b m0t">
-              <img ng-src="{{publication.picture}}">
+              <img ng-src="{{publication.picture}}" ng-click="profilePopup(publication)">
               <h2>{{publication.name}}</h2>
               <p>{{publication.creationTime * 1000 | amTimeAgo}}</p>
             </div>
