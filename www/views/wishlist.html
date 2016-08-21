@@ -1,5 +1,11 @@
-<ion-view ng-controller="wishlistController" cache-view="false">
-  <ion-nav-title>{{"sidebar_wish_list" | translate}}</ion-nav-title>
+<ion-view ng-controller="wishlistController">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-title>{{"sidebar_wish_list" | translate}}</ion-nav-title>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-content>
     <div class="list">
       <a ng-repeat="publication in favoritePubs | orderBy : 'postDate'" class="item item-thumbnail-left item-text-wrap" href="#">

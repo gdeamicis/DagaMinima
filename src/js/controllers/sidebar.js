@@ -1,8 +1,13 @@
 'use strict';
 
-angular.module('starter.controllers').controller('sidebarController', function($scope, $state, $ionicPopup, storageService) {
+angular.module('starter.controllers').controller('sidebarController', function($scope, $state, $ionicSideMenuDelegate, $ionicPopup, storageService) {
 
   $scope.section = 'Adopt';
+
+  $scope.exit = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+    $state.go('facebook');
+  };
 
   $scope.showLogOutMenu = function() {
 
@@ -21,7 +26,6 @@ angular.module('starter.controllers').controller('sidebarController', function($
           console.log("Success logout");
           storageService.deleteLocalUser();
           $ionicSideMenuDelegate.toggleLeft();
-          $scope.user = null;
           $state.go('facebook');
           logOutPopup.close();
         },

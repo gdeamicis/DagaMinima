@@ -390,6 +390,10 @@
   text-transform: lowercase;
 }
 
+.w100 {
+  width: 100%;
+}
+
 .line {
   border-top: 1px solid #F8F8FB;
   margin: 0.7rem 0;
@@ -429,7 +433,7 @@
 }
 
 .text-gray {
-  color: #8597A7;
+  color: #7f7f7f;
 }
 
 .text-black {
@@ -474,6 +478,20 @@
 
 .color-green {
   color: #1abc9c;
+}
+
+.color-black {
+  color:#4c4c4c;
+}
+
+.text-center{
+  align-items: center;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .has-error {

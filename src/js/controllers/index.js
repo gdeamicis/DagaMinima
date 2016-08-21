@@ -5,11 +5,8 @@ angular.module('starter.controllers').controller('indexController', function($sc
   $scope.$on('$ionicView.enter', function() {
     if (platformService.isCordova) {
       $scope.user = storageService.getLocalUser();
-      if (!$scope.user.userID) {
-        $scope.user = null;
-      }
     } else {
-      $scope.user = true;
+      $scope.user = null;
     }
   });
 

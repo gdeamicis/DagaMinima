@@ -1,5 +1,11 @@
 <ion-view ng-controller="postsController">
-  <ion-nav-title>{{'posts_title' | translate}}</ion-nav-title>
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-title>{{'posts_title' | translate}}</ion-nav-title>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-content>
     <div class="list">
       <a ng-repeat="publication in publications | orderBy : 'postDate'" class="item item-thumbnail-left item-text-wrap" href="#">

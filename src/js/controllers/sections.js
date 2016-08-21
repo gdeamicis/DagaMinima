@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('starter.controllers').controller('sectionsController', function($scope, $timeout, $state, sectionsService, storageService, $cordovaSocialSharing, lodash, $ionicPopup) {
+angular.module('starter.controllers').controller('sectionsController', function($scope, $timeout, $state, $ionicSideMenuDelegate, sectionsService, storageService, $cordovaSocialSharing, lodash, $ionicPopup) {
+
+  $ionicSideMenuDelegate.canDragContent(true);
 
   $scope.options = {
     loop: false,

@@ -11,10 +11,11 @@
 
     "options": "Options",
 
-    "facebook_title": "Welcome",
     "facebook": "Facebook",
     "facebook_message": "This app will help you to find and adopt a pet-member to your family",
 
+    "no-one": "I'm no one",
+    
     "general_maximum_dagger": "Maximum Dagger!",
 
     "publish_title": "Publish",
@@ -36,6 +37,9 @@
     "sidebar_settings": "Settings",
     "sidebar_help": "Help",
     "sidebar_logout": "Log out",
+    "sidebar_exit": "Exit",
+
+    "profile_title": "My profile",
 
     "alert_message": "Are you sure you want to logout? This app is awesome so I recommend you to stay",
     "alert_ok": "Yes",

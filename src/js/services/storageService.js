@@ -9,7 +9,7 @@ angular.module('starter.services').factory('storageService', function($http, $lo
   };
 
   root.getLocalUser = function() {
-    return JSON.parse(window.localStorage.user || '{}');
+    return JSON.parse(window.localStorage.user || null);
   };
 
   root.deleteLocalUser = function() {

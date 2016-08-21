@@ -1,9 +1,12 @@
 <ion-content ng-controller="sidebarController">
   <div class="list">
-    <div class="item item-avatar">
+    <div ng-show="user" class="item item-avatar" menu-close ui-sref="profile">
       <img ng-src="{{user.picture}}">
       <h2>{{user.name}}</h2>
       <p>{{user.email}}</p>
+    </div>
+    <div ng-show="!user">
+      <div class="item item-icon-left"><i class="icon ion-ios-person-outline"></i>No profile</div>
     </div>
     <div class="item item-divider">
      {{"sections" | translate}}
@@ -14,16 +17,23 @@
     <div class="item item-divider">
      {{"options" | translate}}
     </div>
-    <a menu-close ui-sref="posts" class="item item-icon-left l5h"><i class="icon ion-ios-photos-outline"></i>{{"sidebar_posts" | translate}}</a>
+    <a ng-show="user" menu-close ui-sref="posts" class="item item-icon-left l5h"><i class="icon ion-ios-photos-outline"></i>{{"sidebar_posts" | translate}}</a>
     <a menu-close ui-sref="wishlist" class="item item-icon-left l5h"><i class="icon ion-ios-star-outline"></i>{{"sidebar_wish_list" | translate}}</a>
-    <a menu-close ui-sref="publish" class="item item-icon-left l5h"><i class="icon ion-ios-camera-outline"></i>{{"sidebar_publish" | translate}}</a>
+    <a ng-show="user" menu-close ui-sref="publish" class="item item-icon-left l5h"><i class="icon ion-ios-camera-outline"></i>{{"sidebar_publish" | translate}}</a>
     <a menu-close ui-sref="settings" class="item item-icon-left l5h"><i class="icon ion-ios-gear-outline"></i>{{"sidebar_settings" | translate}}</a>
-    <a menu-close hrui-sref="help" class="item item-icon-left l5h"><i class="icon ion-ios-help-outline"></i>{{"sidebar_help" | translate}}</a>
+    <a menu-close ui-sref="help" class="item item-icon-left l5h"><i class="icon ion-ios-help-outline"></i>{{"sidebar_help" | translate}}</a>
   </div>
-  <div class="row line-t">
+  <div ng-show="user" ng-click="showLogOutMenu()" class="row line-t">
     <ul class="list">
-      <li ng-click="showLogOutMenu()" class="item">
+      <li class="item">
         {{"sidebar_logout" | translate}}
+      </li>
+    </ul>
+  </div>
+  <div ng-show="!user" ng-click="exit()" class="row line-t">
+    <ul class="list">
+      <li class="item">
+        {{"sidebar_exit" | translate}}
       </li>
     </ul>
   </div>
