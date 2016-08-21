@@ -22,7 +22,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
         userID: profileInfo.id,
         name: profileInfo.name,
         email: profileInfo.email,
-        picture: "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
+        picture: "http://graph.facebook.com/" + authResponse.userID + "/picture?width=120&height=120"
       };
 
       storageService.setLocalUser(user);
@@ -66,7 +66,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
         facebookService.setUser({
           userID: userID,
           name: name,
-          picture: "http://graph.facebook.com/" + facebookToken.userID + "/picture?type=large"
+          picture: "http://graph.facebook.com/" + facebookToken.userID + "/picture?width=120&height=120"
         }, function(err, data) {
           if (err) {
             console.log("could not save data on server: " + JSON.stringify(err));

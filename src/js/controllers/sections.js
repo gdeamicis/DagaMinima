@@ -6,6 +6,7 @@ angular.module('starter.controllers').controller('sectionsController', function(
     loop: false,
     effect: 'flip',
     speed: 500,
+    direction: 'vertical',
     spaceBetween: 100
   }
 
