@@ -1,5 +1,11 @@
 <ion-view ng-controller="settingsController">
-  <ion-nav-title>{{'settings_title' | translate}}</ion-nav-title>
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-title>{{'settings_title' | translate}}</ion-nav-title>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-content>
     <div class="list">
       <div class="item item-divider item-icon-left">

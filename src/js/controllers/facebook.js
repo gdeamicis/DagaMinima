@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('starter.controllers').controller('facebookLoginController', function($scope, $rootScope, $state, $log, storageService, facebookService) {
+angular.module('starter.controllers').controller('facebookLoginController', function($scope, $rootScope, $state, $log, $ionicSideMenuDelegate, storageService, facebookService) {
+
+  $ionicSideMenuDelegate.canDragContent(false);
   // This is the success callback from the login method
   var fbLoginSuccess = function(success) {
     if (!success.authResponse) {
@@ -22,7 +24,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
         userID: profileInfo.id,
         name: profileInfo.name,
         email: profileInfo.email,
-        picture: "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
+        picture: "http://graph.facebook.com/" + authResponse.userID + "/picture?width=600&height=600"
       };
 
       storageService.setLocalUser(user);
@@ -66,7 +68,7 @@ angular.module('starter.controllers').controller('facebookLoginController', func
         facebookService.setUser({
           userID: userID,
           name: name,
-          picture: "http://graph.facebook.com/" + facebookToken.userID + "/picture?type=large"
+          picture: "http://graph.facebook.com/" + facebookToken.userID + "/picture?width=600&height=600"
         }, function(err, data) {
           if (err) {
             console.log("could not save data on server: " + JSON.stringify(err));

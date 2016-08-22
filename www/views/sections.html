@@ -1,17 +1,23 @@
-<ion-view ng-controller="sectionsController" cache-view="false" class="sections">
-  <ion-nav-title>
-    <div ng-switch on="section">
-      <div ng-switch-when="Adopt">
-        {{'sections_adopt' | translate}}
+<ion-view ng-controller="sectionsController" class="sections">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-title>
+      <div ng-switch on="section">
+        <div ng-switch-when="Adopt">
+          {{'sections_adopt' | translate}}
+        </div>
+        <div ng-switch-when="Wanted">
+          {{'sections_wanted' | translate}}
+        </div>
+        <div ng-switch-when="Lost">
+          {{'sections_found' | translate}}
+        </div>
       </div>
-      <div ng-switch-when="Wanted">
-        {{'sections_wanted' | translate}}
-      </div>
-      <div ng-switch-when="Lost">
-        {{'sections_found' | translate}}
-      </div>
-    </div>
-  </ion-nav-title>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-slides class="slides has-header has-footer" options="options" slider="data.slider">
     <ion-slide-page ng-repeat="publication in publications">
       <ion-content>

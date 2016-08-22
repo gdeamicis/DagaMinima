@@ -1,5 +1,11 @@
-<ion-view ng-controller="publishController" class="publish" cache-view="false">
-  <ion-nav-title>{{'publish_title' | translate}}</ion-nav-title>
+<ion-view ng-controller="publishController" class="publish">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-title>{{'publish_title' | translate}}</ion-nav-title>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-nav-buttons side="right">
     <i ng-show="formData.imgURI" ng-click="sendPopup()" ng-class="{'text-gray': !formData.description || !formData.category || !formData.imgURI}" class="icon ion-ios-paperplane-outline size-36 m10r"></i>
   </ion-nav-buttons>

@@ -11,10 +11,11 @@
 
     "options" : "Opciones",
 
-    "facebook_title": "Bienvenido",
     "facebook": "Facebook",
     "facebook_message": "Esta aplicación te ayudará a encontrar y adoptar una mascota para tu familia.",
 
+    "no-one": "I'm no one",
+    
     "general_maximum_dagger": "Daga Máxima!",
 
     "publish_title": "Publicar",
@@ -36,6 +37,9 @@
     "sidebar_settings": "Configuración",
     "sidebar_help": "Ayuda",
     "sidebar_logout": "Cerrar sesión",
+    "sidebar_exit": "Salir",
+
+    "profile_title": "Mi perfil",
 
     "alert_message": "Esta seguro que desea salir? Es una aplicación increible, le recomiendo que se quede",
     "alert_ok": "Si",
