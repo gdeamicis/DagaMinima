@@ -1,4 +1,4 @@
-<ion-content ng-controller="sidebarController">
+<ion-content ng-controller="sidebarController" class="sidebar">
   <div class="list">
     <div ng-show="user" class="item item-avatar" menu-close ui-sref="profile">
       <img ng-src="{{user.picture}}">
@@ -11,9 +11,9 @@
     <div class="item item-divider">
      {{"sections" | translate}}
     </div>
-    <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Adopt')" class="item l5h" ng-style="{'color': section == 'Adopt' ? '#00007f' : '#000', 'font-size': section == 'Adopt' ? '16px' : '14px'}">{{"sections_adopt" | translate}}</a>
-    <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Wanted')"  class="item l5h" ng-style="{'color': section == 'Wanted' ? '#00007f' : '#000', 'font-size': section == 'Wanted' ? '16px' : '14px'}">{{"sections_wanted" | translate}}</a>
-    <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Lost')" class="item l5h" ng-style="{'color': section == 'Lost' ? '#00007f' : '#000', 'font-size': section == 'Lost' ? '16px' : '14px'}">{{"sections_found" | translate}}</a>
+    <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Adopt')" class="item l5h" ng-class="{'sidebar-selected': section == 'Adopt', 'sidebar-unselected': section != 'Adopt'}">{{"sections_adopt" | translate}}</a>
+    <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Wanted')"  class="item l5h" ng-class="{'sidebar-selected': section == 'Wanted', 'sidebar-unselected': section != 'Wanted'}">{{"sections_wanted" | translate}}</a>
+    <a menu-close ui-sref="sections({section: section})" ng-click="changeSection('Lost')" class="item l5h" ng-class="{'sidebar-selected': section == 'Lost', 'sidebar-unselected': section != 'Lost'}">{{"sections_found" | translate}}</a>
     <div class="item item-divider">
      {{"options" | translate}}
     </div>
