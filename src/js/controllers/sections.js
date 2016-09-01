@@ -10,7 +10,7 @@ angular.module('starter.controllers').controller('sectionsController', function(
     effect: 'flip',
     speed: 500,
     direction: 'vertical',
-    spaceBetween: 100
+    spaceBetween: 0
   }
 
   $scope.$on("$ionicSlides.sliderInitialized", function(event, data) {
