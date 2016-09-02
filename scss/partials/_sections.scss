@@ -5,6 +5,16 @@
   .unselected.button, .unselected.button:hover  {
       color: black;
   }
+
+  .item i {
+    padding: 0;
+    position: absolute;
+    color: blue;
+    top: 25%;
+    left: 40%;
+    opacity: 0.25;
+    filter: alpha(opacity=50);
+  }
 }
 
 .popup-body{
@@ -32,19 +42,9 @@
   height: 100%;
 }
 
-.item i {
-  padding: 0;
-  position: absolute;
-  color: blue;
-  top: 25%;
-  left: 40%;
-  opacity: 0.25;
-  filter: alpha(opacity=50);
-}
-
 .item-body img {
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .item-body p {

@@ -15,7 +15,7 @@
     "facebook_message": "Esta aplicación te ayudará a encontrar y adoptar una mascota para tu familia.",
 
     "no-one": "I'm no one",
-    
+
     "general_maximum_dagger": "Daga Máxima!",
 
     "publish_title": "Publicar",
@@ -28,12 +28,15 @@
 
     "posts_title": "Mis Publicaciones",
 
+    "chats_title": "Conversaciones",
+
     "settings_title": "Configuración",
     "settings_select_language": "Seleccione el idioma",
 
     "sidebar_posts": "Mis publicaciones",
     "sidebar_wish_list": "Lista de deseos",
     "sidebar_publish": "Publicar",
+    "sidebar_chats": "Conversaciones",
     "sidebar_settings": "Configuración",
     "sidebar_help": "Ayuda",
     "sidebar_logout": "Cerrar sesión",
@@ -54,5 +57,7 @@
     "publish_status": "Publicado de manera existosa",
 
     "cancel": "Cancelar",
-    "ok": "OK"
+    "ok": "OK",
+
+    "delete": "Borrar"
 }

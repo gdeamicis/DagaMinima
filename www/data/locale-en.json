@@ -15,7 +15,7 @@
     "facebook_message": "This app will help you to find and adopt a pet-member to your family",
 
     "no-one": "I'm no one",
-    
+
     "general_maximum_dagger": "Maximum Dagger!",
 
     "publish_title": "Publish",
@@ -34,6 +34,7 @@
     "sidebar_posts": "My Posts",
     "sidebar_wish_list": "Wish Lists",
     "sidebar_publish": "Publish",
+    "sidebar_chats": "Chats",
     "sidebar_settings": "Settings",
     "sidebar_help": "Help",
     "sidebar_logout": "Log out",
@@ -54,5 +55,8 @@
     "publish_status": "Published successfuly",
 
     "cancel": "Cancel",
-    "ok": "OK"
+    "ok": "OK",
+
+    "delete": "Delete"
+
 }

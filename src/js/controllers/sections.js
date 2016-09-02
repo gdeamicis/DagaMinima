@@ -113,7 +113,7 @@ angular.module('starter.controllers').controller('sectionsController', function(
     console.log("contact");
     $scope.setFavorite(publication);
     $scope.showPaw = true;
-    setTimeout(function() {
+    $timeout(function() {
       $scope.$apply(function() {
         $scope.showPaw = false;
       });
