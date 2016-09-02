@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('starter.controllers').controller('sectionsController', function($scope, $timeout, $state, $ionicSideMenuDelegate, sectionsService, storageService, $cordovaSocialSharing, lodash, $ionicPopup) {
+angular.module('starter.controllers').controller('sectionsController', function($scope, $timeout, $state, $ionicSideMenuDelegate, sectionsService, storageService, $cordovaSocialSharing, lodash, $ionicPopup, $ionicPopover) {
 
   $ionicSideMenuDelegate.canDragContent(true);
   $scope.showPaw = false;
@@ -55,7 +55,7 @@ angular.module('starter.controllers').controller('sectionsController', function(
   $scope.share = function(description, image) {
     $cordovaSocialSharing.share(description, $scope.section, null, "Compartido desde Aninder");
   }
-
+/*
   $scope.sectionsMorePopup = function() {
 
     var sectionsMorePopup = $ionicPopup.show({
@@ -71,6 +71,25 @@ angular.module('starter.controllers').controller('sectionsController', function(
       sectionsMorePopup.close();
     };
   }
+  */
+
+  $ionicPopover.fromTemplateUrl('./views/includes/sectionsMorePopup.html',{
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
 
   $scope.profilePopup = function(publication) {
 

@@ -36,14 +36,14 @@
                 <img class="full-image" ng-src="{{publication.imageURI}}" on-double-tap="contact(publication)">
                 <i ng-show="showPaw" class="ion-ios-paw size-72"></i>
               </div>
-              <p class="m10l">
+              <p class="m10l m10r">
                 {{publication.description}}
               </p>
             </div>
             <div class="button-bar">
               <button ng-class="{'ion-ios-paw-outline unselected': !isFavorite(publication), 'ion-ios-paw selected': isFavorite(publication)}" class="button button-icon icon" ng-click="setFavorite(publication)"></button>
               <button class="button button-icon icon ion-android-share-alt" ng-click="share(publication.description,publication.principalImage)"></button>
-              <button class="button button-icon icon ion-ios-more-outline" ng-click="sectionsMorePopup()"></button>
+              <button class="button button-icon icon ion-ios-more-outline" ng-click="openPopover($event)"></button>
             </div>
           </div>
         </ion-scroll>

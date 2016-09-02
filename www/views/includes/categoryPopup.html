@@ -1,15 +1,12 @@
 <div class="columns m20t">
   <ion-list>
-    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Adopt'">{{'categoryPopup_adopt' | translate}}</ion-radio>
-    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Wanted'">{{'categoryPopup_wanted' | translate}}</ion-radio>
-    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Found'">{{'categoryPopup_found' | translate}}</ion-radio>
+    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Adopt'" ng-click="accept(category)">{{'categoryPopup_adopt' | translate}}</ion-radio>
+    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Wanted'" ng-click="accept(category)">{{'categoryPopup_wanted' | translate}}</ion-radio>
+    <ion-radio icon="icon ion-ios-paw" ng-model="category" ng-value="'Found'" ng-click="accept(category)">{{'categoryPopup_found' | translate}}</ion-radio>
   </ion-list>
   <div class="row">
     <div class="col">
       <button class="button button-full button-dark" ng-click="cancel()">{{'cancel' | translate}}</button>
-    </div>
-    <div class="col">
-      <button class="button button-full button-dark" ng-click="accept(category)">{{'ok' | translate}}</button>
     </div>
   </div>
 </div>
